@@ -33,16 +33,40 @@ export const compareRank = (a: Row['ranking'], b: Row['ranking']) => {
 export const header = [
   {
     text: '排名',
-    // value: 'latestRank',
-    // value: 'currentRank',
     value: 'ranking',
     sortable: true,
     sort: compareRank,
+    align: 'left',
   },
-  { text: '本名', value: 'name' },
-  { text: '经济公司', value: 'company' },
-  { text: '初评', value: 'level[0].level' },
-  { text: '公演 1', value: 'level[1].level' },
-  { text: '主题曲', value: 'level[2].level' },
-  { text: '排名变动', value: 'rankDelta' },
+  {
+    text: '本名',
+    value: 'name',
+    align: 'left',
+  },
+  {
+    text: '经济公司',
+    value: 'company',
+    sortable: false,
+    align: 'left',
+  },
+  {
+    text: '初评',
+    value: 'level[0].level',
+    align: 'left',
+  },
+  {
+    text: '公演1',
+    value: 'level[1].level',
+    align: 'left',
+  },
+  {
+    text: '主题曲',
+    value: 'level[2].level',
+    align: 'left',
+  },
+  {
+    text: '排名变动',
+    value: 'rankDelta',
+    align: 'left',
+  },
 ]

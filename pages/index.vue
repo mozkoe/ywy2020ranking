@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="flex flex-col min-h-screen">
     <div class="banner" />
 
-    <div class="mainWrapper flex">
+    <div class="main-wrapper flex">
       <div class="chart-graph">
         <!-- Line Graph -->
         <div class="plot">
@@ -18,34 +18,34 @@
 
         <!-- Profile -->
         <div class="profile flex mt-4" v-if="state.selectedRow">
-          <div class="picWrapper">
+          <div class="pic-wrapper">
             <img :src="`/avatars/${state.selectedRow.name}.png`" class="pic">
           </div>
 
-          <div class="textWrapper ml-4">
-            <span class="infoName text-lg">
+          <div class="text-wrapper">
+            <div class="info-name text-lg">
               {{ state.selectedRow.name }}
-            </span>
-            <span class="infoLetter letter">
+            </div>
+            <div class="info-letter mt-1">
               <LevelCircle
                 :level="state.selectedRow.level[state.selectedRow.level.length - 1]
                   ? state.selectedRow.level[state.selectedRow.level.length - 1].level
                   : null"
               />
-            </span>
-            <div class="infoCompany smallCaps mt-1">
+            </div>
+            <div class="info-company small-caps mt-2">
               {{ state.selectedRow.company }}
             </div>
-            <div class="infoRank">
+            <div class="info-rank small-caps mt-1">
               {{ state.selectedRow.specialNote }}
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Top 11 -->
+      <!-- table -->
       <div class="chart-table">
-        <h1>当前排名</h1>
+        <h1 class="title">当前排名</h1>
 
         <v-data-table
           :headers="header"
@@ -56,7 +56,6 @@
           :sort-desc="false"
           fixed-header
           height="500"
-          class="elevation-1"
         >
           <template #body="{ items }">
             <tbody>
@@ -75,10 +74,13 @@
                   <LevelCircle :level="item.level[i - 1] ? item.level[i - 1].level : null" />
                 </td>
                 <td>
-                  <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta < 0">
-                  <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
-                  <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta > 0">
-                  {{ item.rankDelta === '-' ? '-' : Math.abs(item.rankDelta) }}
+                  <span class="flex justify-center items-center">
+                    <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta < 0">
+                    <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
+                    <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta > 0">
+
+                    <span class="flex ml-2">{{ item.rankDelta === '-' ? '-' : Math.abs(item.rankDelta) }}</span>
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -87,9 +89,9 @@
       </div>
     </div>
 
-    <div class="footer">
+    <div class="footer flex">
       <p>
-        Youth With You 2020 Rankings:
+        iQiyi's Youth With You 2020 Rankings:
         <a href="https://mozkoe.com/ywy2/">https://mozkoe.com/ywy2/</a>
       </p>
     </div>

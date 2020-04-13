@@ -61,8 +61,6 @@ export default defineComponent({
           }
         })
 
-        // r.latestRank = getLatestRank(r)
-        // r.currentRank = getCurrentRank(r)
         r.universalRank = r.ranking
 
         const lastRank = r.ranking[r.ranking.length - 1]?.rank

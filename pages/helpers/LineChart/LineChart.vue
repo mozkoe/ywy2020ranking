@@ -31,7 +31,7 @@
         :d="pathGenerate(line)"
         :style="{
           stroke: getRowColor(line),
-          'stroke-width': line.selected ? 8 : 6,
+          'stroke-width': line.selected ? 8 : 4,
           opacity: line.selected ? 1 : 0.2,
         }"
         @mouseenter="props.handleLineEnter(line)"
