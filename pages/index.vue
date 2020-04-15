@@ -92,7 +92,7 @@
     <div class="footer flex">
       <p>
         iQiyi's Youth With You 2020 Rankings:
-        <a href="https://mozkoe.com/ywy2/">https://mozkoe.com/ywy2/</a>
+        <a href="https://mozkoe.com/ywy2020/">https://mozkoe.com/ywy2020/</a>
       </p>
     </div>
   </div>
