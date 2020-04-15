@@ -19,7 +19,7 @@
         <!-- Profile -->
         <div class="profile flex mt-4" v-if="state.selectedRow">
           <div class="pic-wrapper">
-            <img :src="`/avatars/${state.selectedRow.name}.png`" class="pic">
+            <img :src="`${baseUrl}/avatars/${state.selectedRow.name}.png`" class="pic">
           </div>
 
           <div class="text-wrapper">

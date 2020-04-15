@@ -1,5 +1,5 @@
 import { defineComponent, onMounted, reactive } from '@vue/composition-api'
-import { header, colors, episodes, compareRank } from './config'
+import { header, colors, episodes, compareRank, baseUrl } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
 import LevelCircle from './helpers/LevelCircle/LevelCircle.vue'
@@ -106,6 +106,7 @@ export default defineComponent({
     }
 
     return {
+      baseUrl,
       state,
       colors,
       header,

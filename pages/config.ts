@@ -1,5 +1,9 @@
 import { Row } from './types'
 
+export const baseUrl = process.env.NODE_ENV === 'production'
+  ? '/ywy2020'
+  : ''
+
 export const episodes = [2, 4, 6, 10]
 
 export const colors = {

@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -32,6 +32,12 @@ export default {
   plugins: [
     '~/plugins/composition-api.ts',
   ],
+
+  router: {
+    base: process.env.NODE_ENV === 'production'
+      ? '/ywy2020'
+      : '',
+  },
   /*
   ** Nuxt.js dev-modules
   */
