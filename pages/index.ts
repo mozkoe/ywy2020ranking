@@ -22,6 +22,7 @@ export default defineComponent({
       svgData: [] as Array<Row>,
       selectedRow: null as null | Row,
       maxRank: 100,
+      search: '',
     })
 
     onMounted(async () => {

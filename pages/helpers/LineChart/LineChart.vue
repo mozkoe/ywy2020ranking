@@ -22,7 +22,7 @@
     </g>
     <g>
       <path
-        v-for="line of props.list"
+        v-for="line of props.list.filter((v) => v.selected)"
         :key="line.id"
         class="ranking"
         :class="{
@@ -31,7 +31,7 @@
         :d="pathGenerate(line)"
         :style="{
           stroke: getRowColor(line),
-          'stroke-width': line.selected ? 8 : 4,
+          'stroke-width': line.selected ? 4 : 2,
           opacity: line.selected ? 1 : 0.1,
         }"
         @mouseenter="props.handleLineEnter(line)"

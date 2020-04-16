@@ -12,11 +12,6 @@ body
   font-size: 12px
   color: #888
 
-.title
-  margin-bottom: 20px
-  font-size: 24px
-  font-weight: bold
-
 /* Top */
 .banner
   background-color: #0564e9
@@ -30,9 +25,7 @@ body
 
 .banner img
   max-height: 120px
-
-.main-wrapper
-  padding: 0 40px
+  pointer-events: none
 
 /* Misc */
 img.arrow
@@ -86,6 +79,18 @@ path.ranking
   @media screen and (max-width: ($width - 1px))
     @content
 
+.main-wrapper
+  padding: 0 40px
+  +lt(960)
+    padding: 0 16px
+
+.title-wrap
+  .title
+    font-size: 24px
+
+  +lt(960)
+    margin: 12px
+
 .plot
   width: 100%
   height: 358px
@@ -112,9 +117,11 @@ path.ranking
       +lt(960)
         width: 118px
         min-width: 118px
-
       img
         width: 100%
+        pointer-events: none
+    +lt(960)
+      padding-left: 10px
 
   +lt(960)
     flex: none

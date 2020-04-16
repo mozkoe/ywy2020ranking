@@ -60,17 +60,29 @@
 
       <!-- table -->
       <div class="chart-table mt-4 mt-lg-0">
-        <h1 class="title">当前排名</h1>
+        <div class="flex justify-between align-center mb-6 title-wrap">
+          <span class="flex font-bold title self-end">当前排名</span>
+          <span class="flex">
+            <v-text-field
+              v-model="state.search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            />
+          </span>
+        </div>
 
         <v-data-table
           :headers="header"
           :items="state.data"
+          fixed-header
           disable-pagination
           hide-default-footer
+          height="500"
           sort-by="ranking"
           :sort-desc="false"
-          fixed-header
-          height="500"
+          :search="state.search"
         >
           <template #item="{ item, headers }">
             <tr
@@ -134,10 +146,10 @@
     </div>
 
     <div class="footer flex mt-10">
-      <p>
+      <footer>
         iQiyi's Youth With You 2020 Rankings:
         <a href="https://mozkoe.com/ywy2020/">https://mozkoe.com/ywy2020/</a>
-      </p>
+      </footer>
     </div>
   </div>
 </template>

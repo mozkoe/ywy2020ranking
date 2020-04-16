@@ -41,16 +41,18 @@ export const header = [
     sortable: true,
     sort: compareRank,
     align: 'left',
+    width: '10%',
   },
   {
-    text: '本名',
+    text: '姓名',
     value: 'name',
     align: 'left',
+    width: '20%',
   },
   {
-    text: '经济公司',
+    text: '经纪公司',
     value: 'company',
-    sortable: false,
+    // sortable: false,
     align: 'left',
   },
   {
