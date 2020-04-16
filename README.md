@@ -8,7 +8,6 @@ Inspired by ajyu124/p48ranking ;)
 
 ![alt text](./assets/images/ywy2.jpg)
 
-
 ## Build Setup
 
 ```bash
