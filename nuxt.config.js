@@ -14,6 +14,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
+    script: process.env.NODE_ENV === 'production' ? [
+      { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb' },
+    ] : undefined,
   },
   /*
   ** Customize the progress-bar color
