@@ -32,7 +32,7 @@
         :style="{
           stroke: getRowColor(line),
           'stroke-width': line.selected ? 8 : 4,
-          opacity: line.selected ? 1 : 0.2,
+          opacity: line.selected ? 1 : 0.1,
         }"
         @mouseenter="props.handleLineEnter(line)"
         @click="props.handleLineEnter(line)"

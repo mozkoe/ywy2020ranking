@@ -82,13 +82,16 @@ path.ranking
 .footer a
   color: #888
 
+@mixin lt($width)
+  @media screen and (max-width: ($width - 1px))
+    @content
+
 .plot
   width: 100%
   height: 358px
 
-@mixin lt($width)
-  @media screen and (max-width: ($width - 1px))
-    @content
+  +lt(960)
+    height: 180px
 
 .main-wrapper
   +lt(960)
