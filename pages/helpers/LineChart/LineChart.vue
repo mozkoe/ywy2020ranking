@@ -35,6 +35,7 @@
           opacity: line.selected ? 1 : 0.2,
         }"
         @mouseenter="props.handleLineEnter(line)"
+        @click="props.handleLineEnter(line)"
       />
     </g>
     <g

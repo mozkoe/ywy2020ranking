@@ -24,7 +24,7 @@ export default defineComponent({
     const state = reactive({
       width: 100,
       height: 100,
-      padding: 50,
+      padding: 20,
       paddingTop: 45,
       paddingBottom: 30,
       updateId: 0,

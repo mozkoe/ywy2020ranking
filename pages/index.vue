@@ -17,34 +17,49 @@
         </div>
 
         <!-- Profile -->
-        <div class="profile flex mt-4" v-if="state.selectedRow">
+        <div class="profile flex mt-4 mb-6 ml-lg-5" v-if="state.selectedRow">
           <div class="pic-wrapper">
             <img :src="`${baseUrl}/avatars/${state.selectedRow.name}.png`" class="pic">
           </div>
 
-          <div class="text-wrapper">
+          <div class="text-wrapper ml-4">
             <div class="info-name text-lg">
               {{ state.selectedRow.name }}
             </div>
-            <div class="info-letter mt-1">
-              <LevelCircle
-                :level="state.selectedRow.level[state.selectedRow.level.length - 1]
-                  ? state.selectedRow.level[state.selectedRow.level.length - 1].level
-                  : null"
-              />
+            <div class="text-xs mt-1 text-gray-600">
+              <span class="font-bold">当前排名：</span>
+              {{
+                state.selectedRow.universalRank[state.selectedRow.universalRank.length - 1] ?
+                  state.selectedRow.universalRank[state.selectedRow.universalRank.length - 1].rank
+                  : null
+              }}
+            </div>
+            <div class="info-letter mt-1 flex justify-center align-center">
+              <div class="text-xs flex-none self-center text-gray-600 font-bold">历史评级：</div>
+
+              <div class="flex flex-wrap">
+                <div
+                  class="mr-1 mb-1"
+                  v-for="(item, index) in state.selectedRow.level"
+                  :key="index"
+                >
+                  <LevelCircle
+                    :level="item.level"
+                  />
+                </div>
+              </div>
             </div>
             <div class="info-company small-caps mt-2">
               {{ state.selectedRow.company }}
-            </div>
-            <div class="info-rank small-caps mt-1">
-              {{ state.selectedRow.specialNote }}
+              <!-- info -->
+              <span class="ml-2">{{ state.selectedRow.specialNote }}</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- table -->
-      <div class="chart-table">
+      <div class="chart-table mt-4 mt-lg-0">
         <h1 class="title">当前排名</h1>
 
         <v-data-table
@@ -57,23 +72,52 @@
           fixed-header
           height="500"
         >
-          <template #body="{ items }">
-            <tbody>
-              <tr
-                v-for="item in items"
-                :key="item.name"
-                @mouseenter="handleLineEnter(item)"
+          <template #item="{ item, headers }">
+            <tr
+              class="table-row"
+              @mouseenter="handleLineEnter(item)"
+              @click="handleLineEnter(item)"
+            >
+              <td>
+                <div class="mobile-row-header">
+                  {{ headers[0].text }}
+                </div>
+                <div class="mobile-row-content">
+                  {{ item.ranking.length === episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
+                </div>
+              </td>
+              <td>
+                <div class="mobile-row-header">
+                  {{ headers[1].text }}
+                </div>
+                <div class="mobile-row-content">
+                  {{ item.name }}
+                </div>
+              </td>
+              <td>
+                <div class="mobile-row-header">
+                  {{ headers[2].text }}
+                </div>
+                <div class="mobile-row-content">
+                  {{ item.company }}
+                </div>
+              </td>
+              <td
+                v-for="i of 3"
+                :key="i"
               >
-                <td>{{ item.ranking.length === episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.company }}</td>
-                <td
-                  v-for="i of 3"
-                  :key="i"
-                >
+                <div class="mobile-row-header">
+                  {{ headers[2 + i].text }}
+                </div>
+                <div class="mobile-row-content">
                   <LevelCircle :level="item.level[i - 1] ? item.level[i - 1].level : null" />
-                </td>
-                <td>
+                </div>
+              </td>
+              <td>
+                <div class="mobile-row-header">
+                  {{ headers[6].text }}
+                </div>
+                <div class="mobile-row-content">
                   <span class="flex justify-center items-center">
                     <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta < 0">
                     <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
@@ -81,15 +125,15 @@
 
                     <span class="flex ml-2">{{ item.rankDelta === '-' ? '-' : Math.abs(item.rankDelta) }}</span>
                   </span>
-                </td>
-              </tr>
-            </tbody>
+                </div>
+              </td>
+            </tr>
           </template>
         </v-data-table>
       </div>
     </div>
 
-    <div class="footer flex">
+    <div class="footer flex mt-10">
       <p>
         iQiyi's Youth With You 2020 Rankings:
         <a href="https://mozkoe.com/ywy2020/">https://mozkoe.com/ywy2020/</a>

@@ -102,13 +102,19 @@ path.ranking
     // order: 2
 
   .profile
-    padding-left: 50px
-
+    overflow: hidden
     .pic-wrapper
       width: 180px
+      min-width: 180px
+      +lt(960)
+        width: 118px
+        min-width: 118px
 
-    .pic-wrapper img
-      width: 100%
+      img
+        width: 100%
+
+  +lt(960)
+    flex: none
 
     .text-wrapper
       margin-left: 24px
@@ -120,12 +126,28 @@ path.ranking
       // .info-company
       //   margin: 5px 0 8px
 
-      .info-rank
-        color: #888
-
 .chart-table
   flex: 1 1 50%
+  margin-left: 26px
 
   +lt(960)
     flex: none
-    // order: 1
+    margin-left: inherit
+
+  .table-row
+    .mobile-row-header
+      display: none
+
+    +lt(960)
+      &:not(:last-child)
+        border-bottom: 1px solid #bbb
+
+      td
+        display: flex
+        justify-content: space-between
+        align-items: center
+        border: none !important
+
+        .mobile-row-header
+          display: block
+          font-weight: bold

@@ -2,3 +2,11 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+
+$grid-breakpoints: (
+  'xs': 0,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 960px,
+  'xl': 1280px
+)
