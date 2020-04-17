@@ -88,9 +88,6 @@ path.ranking
   .title
     font-size: 24px
 
-  +lt(960)
-    margin: 12px
-
 .plot
   width: 100%
   height: 358px
@@ -114,9 +111,16 @@ path.ranking
     .pic-wrapper
       width: 180px
       min-width: 180px
+      // max-width: 250px
+      height: 180px
+      min-height: 180px
+      // max-height: 250px
+      background: #ededed
       +lt(960)
         width: 118px
         min-width: 118px
+        height: 118px
+        min-height: 118px
       img
         width: 100%
         pointer-events: none
@@ -133,8 +137,10 @@ path.ranking
         font-size: 20px
         font-weight: bold
 
-      // .info-company
-      //   margin: 5px 0 8px
+.v-data-table__wrapper
+  +lt(960)
+    border: 1px solid #f2f2f2
+    border-radius: 4px
 
 .chart-table
   flex: 1 1 50%
@@ -143,12 +149,14 @@ path.ranking
   +lt(960)
     flex: none
     margin-left: inherit
+    padding: 0 18px
 
   .table-row
     .mobile-row-header
       display: none
+      box-sizing: border-box
 
-    +lt(960)
+    +lt(600)
       &:not(:last-child)
         border-bottom: 1px solid #bbb
 

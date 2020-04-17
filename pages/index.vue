@@ -19,7 +19,10 @@
         <!-- Profile -->
         <div class="profile flex mt-4 mb-6 ml-lg-5" v-if="state.selectedRow">
           <div class="pic-wrapper">
-            <img :src="`${baseUrl}/avatars/${state.selectedRow.name}.png`" class="pic">
+            <img
+              :src="`${baseUrl}/avatars/${state.selectedRow.name}.png`"
+              class="pic"
+            >
           </div>
 
           <div class="text-wrapper ml-4">
@@ -59,7 +62,7 @@
       </div>
 
       <!-- table -->
-      <div class="chart-table mt-4 mt-lg-0">
+      <div class="chart-table mt-lg-0">
         <div class="flex justify-between align-center mb-6 title-wrap">
           <span class="flex font-bold title self-end">当前排名</span>
           <span class="flex">
