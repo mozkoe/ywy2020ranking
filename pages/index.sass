@@ -104,18 +104,19 @@ path.ranking
 
   +lt(960)
     flex: none
-    // order: 2
 
   .profile
     overflow: hidden
 
+    .elected-big
+      margin-top: 5px
+      width: 32px
+
     .pic-wrapper
       width: 180px
       min-width: 180px
-      // max-width: 250px
       height: 180px
       min-height: 180px
-      // max-height: 250px
 
       +lt(600)
         width: 118px
@@ -188,3 +189,9 @@ path.ranking
     +lt(600)
       &:not(:last-child)
         border-bottom: 1px solid #bbb
+
+  .isEliminated
+    background: #fffbfb
+
+  .elected
+    width: 24px

@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
 import { mdiMagnify } from '@mdi/js'
-import { header, headerMobile, colors, compareRank, baseUrl, csvEpisodesPrefix } from './config'
+import { header, headerMobile, colors, compareRank, baseUrl, csvEpisodesPrefix, electionNumber } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
 import LevelCircle from './helpers/LevelCircle/LevelCircle.vue'
@@ -10,6 +10,13 @@ const getRank = (n: string) => {
     return -1
   }
   return Number(n)
+}
+
+const getLevelMaxLength = (data: Array<Row>): number => {
+  const maxLength = data.map((v) => v.level.length)
+    .reduce((p, c) => Math.max(p, c))
+
+  return maxLength
 }
 
 export default defineComponent({
@@ -28,6 +35,7 @@ export default defineComponent({
       tableHeight: 500,
       showMore: false,
       episodes: [] as Array<number>,
+      levelMax: 0,
     })
 
     onMounted(async () => {
@@ -80,9 +88,13 @@ export default defineComponent({
 
         const lastRank = r.ranking[r.ranking.length - 1]?.rank
         const secondLastRank = r.ranking[r.ranking.length - 2]?.rank
+
+        // mark out member
+        r.isEliminated = r.ranking.length !== state.episodes.length
+
         r.rankDelta = Number.isNaN(Number(lastRank)) || Number.isNaN(Number(secondLastRank))
           ? '-'
-          : Number(lastRank) - Number(secondLastRank)
+          : Number(secondLastRank) - Number(lastRank)
 
         return {
           ...r,
@@ -96,6 +108,8 @@ export default defineComponent({
 
       state.data = formatted
       state.svgData = [...formatted]
+
+      state.levelMax = getLevelMaxLength(state.data)
 
       state.selectedRow = state.data.reduce((p, c) => {
         const pr = p.ranking
@@ -151,6 +165,7 @@ export default defineComponent({
       header,
       headerMobile,
       imageList,
+      electionNumber,
 
       handleLineEnter,
       handleLineLeave,

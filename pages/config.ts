@@ -7,6 +7,8 @@ export const baseUrl = process.env.NODE_ENV === 'production'
 // csv title, eg: ep1
 export const csvEpisodesPrefix = 'ep'
 
+export const electionNumber = 9
+
 export const colors = {
   'A': '#fb9fcb',
   'B': '#ff951c',
@@ -51,6 +53,7 @@ export const header = [
   {
     text: '经纪公司',
     value: 'company',
+    sortable: false,
   },
   {
     text: '初评',
@@ -87,6 +90,7 @@ export const headerMobile = [
     text: '经纪公司',
     value: 'company',
     width: '25%',
+    sortable: false,
   },
   {
     text: '排名变动',

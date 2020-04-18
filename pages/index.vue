@@ -38,8 +38,15 @@
           </div>
 
           <div class="text-wrapper ml-4">
-            <div class="info-name text-lg">
+            <div class="info-name text-lg flex items-center">
               {{ state.selectedRow.name }}
+
+              <img
+                v-if="state.selectedRow.ranking.length === state.episodes.length &&
+                  state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank <= electionNumber"
+                src="~/assets/images/elected.png"
+                class="elected-big"
+              >
             </div>
             <div class="text-xs mt-1 text-gray-600 flex">
               <span class="font-bold">当前排名：</span>
@@ -52,14 +59,15 @@
               <span class="flex items-center ml-4">
                 <span class="font-bold">排名变动：</span>
 
-                <img src="~assets/images/up-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta < 0">
-                <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta === 0">
-                <img src="~assets/images/down-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta > 0">
-
-                <span class="flex ml-1">{{ state.selectedRow.rankDelta === '-' ? '-' : getAbsRanking(state.selectedRow.rankDelta) }}</span>
+                <span class="flex items-center">
+                  <img src="~assets/images/up-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta > 0">
+                  <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta === 0">
+                  <img src="~assets/images/down-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta < 0">
+                  <span class="flex ml-1">{{ state.selectedRow.rankDelta === '-' ? '-' : getAbsRanking(state.selectedRow.rankDelta) }}</span>
+                </span>
               </span>
             </div>
-            <div class="info-letter mt-1 flex align-center">
+            <div class="info-letter mt-1 flex items-center">
               <div class="text-xs flex-none self-center text-gray-600 font-bold">历史评级：</div>
 
               <div class="flex flex-wrap">
@@ -76,8 +84,12 @@
             </div>
             <div class="info-company small-caps mt-2">
               {{ state.selectedRow.company }}
+
               <!-- info -->
               <span class="ml-2">{{ state.selectedRow.specialNote }}</span>
+              <span class="ml-2" v-if="state.selectedRow.ranking.length !== state.episodes.length && !state.selectedRow.specialNote">
+                已淘汰
+              </span>
             </div>
           </div>
         </div>
@@ -85,7 +97,7 @@
 
       <!-- table -->
       <div class="chart-table mt-lg-0">
-        <div class="flex justify-between align-center title-wrap">
+        <div class="flex justify-between items-center title-wrap">
           <span class="flex font-bold title self-end">当前排名</span>
           <span class="flex">
             <v-text-field
@@ -118,10 +130,14 @@
               <v-switch :ripple="false" v-model="state.showMore" label="More info" />
             </div>
           </template>
-          <template #item="{ item, headers }">
+          <template #item="{ item, headers, index }">
             <tr
               class="table-row"
-              :class="{ 'table-row-more': state.showMore }"
+              :class="{
+                'table-row-more': state.showMore,
+                'isEliminated': item.isEliminated,
+                'currentElected': electionNumber > index,
+              }"
               @mouseenter="handleLineEnter(item)"
               @click="handleLineEnter(item)"
             >
@@ -130,8 +146,16 @@
                 <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[0].text }}
                 </div>
-                <div class="mobile-row-content">
+                <div class="mobile-row-content flex items-center">
                   {{ item.ranking.length === state.episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
+
+                  <!-- <img v-if="electionNumber > index" src="~/assets/images/elected.png" class="elected"> -->
+                  <img
+                    v-if="item.ranking.length === state.episodes.length &&
+                      item.ranking[item.ranking.length - 1].rank <= electionNumber"
+                    src="~/assets/images/elected.png"
+                    class="elected"
+                  >
                 </div>
               </td>
 
@@ -157,7 +181,7 @@
 
               <!-- level list -->
               <td
-                v-for="i of item.level.length"
+                v-for="i of state.levelMax"
                 :key="i"
                 :class="{ 'hidden': !state.showMore }"
               >
@@ -176,11 +200,10 @@
                 </div>
                 <div class="mobile-row-content ranking-change">
                   <span class="flex items-center">
-                    <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta < 0">
+                    <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta > 0">
                     <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
-                    <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta > 0">
-
-                    <span class="flex ml-2">{{ item.rankDelta === '-' ? '-' : getAbsRanking(item.rankDelta) }}</span>
+                    <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta < 0">
+                    <span class="flex ml-1">{{ item.rankDelta === '-' ? '-' : getAbsRanking(item.rankDelta) }}</span>
                   </span>
                 </div>
               </td>
