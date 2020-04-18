@@ -67,13 +67,10 @@ export default defineComponent({
           if (rank > 0) {
             const o: any = {}
             o.episode = episode
-            // o.x = i
             o.rank = rank
             r.ranking.push(o)
           }
         })
-
-        r.universalRank = r.ranking
 
         const lastRank = r.ranking[r.ranking.length - 1]?.rank
         const secondLastRank = r.ranking[r.ranking.length - 2]?.rank

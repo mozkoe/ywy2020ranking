@@ -43,8 +43,8 @@
             <div class="text-xs mt-1 text-gray-600">
               <span class="font-bold">当前排名：</span>
               {{
-                state.selectedRow.universalRank[state.selectedRow.universalRank.length - 1] ?
-                  state.selectedRow.universalRank[state.selectedRow.universalRank.length - 1].rank
+                state.selectedRow.ranking[state.selectedRow.ranking.length - 1] ?
+                  state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank
                   : null
               }}
             </div>
