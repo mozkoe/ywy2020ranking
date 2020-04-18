@@ -4,7 +4,8 @@ export const baseUrl = process.env.NODE_ENV === 'production'
   ? '/ywy2020'
   : ''
 
-export const episodes = [2, 4, 6, 10]
+// add episodes when csv fle updated
+export const episodes = [2, 4, 6, 10, 12]
 
 export const colors = {
   'A': '#fb9fcb',

@@ -1,7 +1,5 @@
 import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
-
 import { mdiMagnify } from '@mdi/js'
-
 import { header, headerMobile, colors, episodes, compareRank, baseUrl } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
@@ -37,7 +35,9 @@ export default defineComponent({
         state.showMore = true
       }
 
-      const dataString = await (await import('./ywy_rank_ep10.csv')).default
+      // ranking data source
+      const dataString = await (await import('./ywy2020_ranking.csv')).default
+
       const a = dataString.replace(/\r/g, '').split('\n').filter(Boolean).map((v) => v.split(','))
       const [csvHeader, ...data] = a
 

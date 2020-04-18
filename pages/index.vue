@@ -146,7 +146,7 @@
 
               <!-- level list -->
               <td
-                v-for="i of 3"
+                v-for="i of item.level.length"
                 :key="i"
                 :class="{ 'hidden': !state.showMore }"
               >

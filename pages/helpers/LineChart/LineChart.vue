@@ -3,7 +3,7 @@
     <span v-if="state.updatedId && false" />
     <g>
       <path
-        v-for="i of 4"
+        v-for="i of episodes.length"
         :key="i - 1"
         class="axis-header"
         :d="`M${getXByColumn(i - 1)},${getYByPercentage(0) - 10}L${getXByColumn(i - 1)},${getYByPercentage(1)}`"
