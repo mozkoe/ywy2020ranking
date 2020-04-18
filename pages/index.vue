@@ -43,9 +43,9 @@
             <div class="text-xs mt-1 text-gray-600">
               <span class="font-bold">当前排名：</span>
               {{
-                state.selectedRow.ranking[state.selectedRow.ranking.length - 1] ?
-                  state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank
-                  : null
+                state.selectedRow.ranking.length === episodes.length ?
+                  state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank :
+                  '-'
               }}
             </div>
             <div class="info-letter mt-1 flex justify-center align-center">
