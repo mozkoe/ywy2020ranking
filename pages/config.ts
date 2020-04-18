@@ -4,8 +4,8 @@ export const baseUrl = process.env.NODE_ENV === 'production'
   ? '/ywy2020'
   : ''
 
-// add episodes when csv file updated
-export const episodes = [2, 4, 6, 10, 12]
+// csv title, eg: ep1
+export const csvEpisodesPrefix = 'ep'
 
 export const colors = {
   'A': '#fb9fcb',

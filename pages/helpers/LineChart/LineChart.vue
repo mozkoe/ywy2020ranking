@@ -1,19 +1,19 @@
 <template>
   <svg width="100%" height="100%" ref="svg">
-    <span v-if="state.updatedId && false" />
+    <span v-if="state.updateId && false" />
     <g>
       <path
-        v-for="i of episodes.length"
+        v-for="i of props.episodes.length"
         :key="i - 1"
         class="axis-header"
-        :d="`M${getXByColumn(i - 1)},${getYByPercentage(0) - 10}L${getXByColumn(i - 1)},${getYByPercentage(1)}`"
+        :d="`M${getXByEpsodes(i - 1)},${getYByPercentage(0) - 10}L${getXByEpsodes(i - 1)},${getYByPercentage(1)}`"
       />
       <text
-        v-for="(ep, i) of episodes"
+        v-for="(ep, i) of props.episodes"
         :key="`ep-${ep}`"
         class="episode-label"
         text-anchor="middle"
-        :x="getXByColumn(i)"
+        :x="getXByEpsodes(i)"
         :y="getYByPercentage(0) - 20"
         fill="#666"
       >

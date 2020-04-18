@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
 import { mdiMagnify } from '@mdi/js'
-import { header, headerMobile, colors, episodes, compareRank, baseUrl } from './config'
+import { header, headerMobile, colors, compareRank, baseUrl, csvEpisodesPrefix } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
 import LevelCircle from './helpers/LevelCircle/LevelCircle.vue'
@@ -27,6 +27,7 @@ export default defineComponent({
       width: 0,
       tableHeight: 500,
       showMore: false,
+      episodes: [] as Array<number>,
     })
 
     onMounted(async () => {
@@ -35,11 +36,16 @@ export default defineComponent({
         state.showMore = true
       }
 
-      // ranking data source
-      const dataString = await (await import('./ywy2020_ranking.csv')).default
+      // import ranking data source from csv file
+      const dataString = (await import('./ywy2020_ranking.csv')).default
 
       const a = dataString.replace(/\r/g, '').split('\n').filter(Boolean).map((v) => v.split(','))
       const [csvHeader, ...data] = a
+
+      // get episodes array
+      state.episodes = csvHeader
+        .filter((hearder) => hearder.startsWith(csvEpisodesPrefix))
+        .map((hearder: string) => parseInt(hearder.substring(csvEpisodesPrefix.length), 10))
 
       const formatted: Array<Row> = data.map((line) => csvHeader.reduce((p, c, i) => {
         p[c] = line[i]
@@ -62,7 +68,7 @@ export default defineComponent({
 
         r.specialNote = row.note
         r.ranking = []
-        episodes.forEach((episode, _i) => {
+        state.episodes.forEach((episode, _i) => {
           const rank = getRank(row[`ep${episode}`])
           if (rank > 0) {
             const o: any = {}
@@ -132,7 +138,6 @@ export default defineComponent({
       if (typeof rank === 'string') {
         return '-'
       }
-
       return Math.abs(rank)
     }
 
@@ -145,7 +150,6 @@ export default defineComponent({
       colors,
       header,
       headerMobile,
-      episodes,
       imageList,
 
       handleLineEnter,

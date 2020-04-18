@@ -1,6 +1,6 @@
 import { defineComponent, computed, onMounted, reactive, watch, onUnmounted } from '@vue/composition-api'
 import { Row, LevelEnum } from '~/pages/types'
-import { colors, episodes } from '~/pages/config'
+import { colors } from '~/pages/config'
 
 interface Props {
   list: Array<Row>
@@ -8,7 +8,7 @@ interface Props {
   maxRank: number
   handleLineEnter: (row: Row) => unknown
   handleLineLeave?: (row: Row) => unknown
-  columns: number
+  episodes: Array<number>
 }
 
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
     maxRank: null,
     handleLineEnter: null,
     handleLineLeave: null,
-    columns: null,
+    episodes: Array,
   },
   setup: (props: Props, ctx) => {
     const state = reactive({
@@ -34,12 +34,12 @@ export default defineComponent({
       svg: SVGSVGElement
     } = ctx.refs
 
-    const getXByColumn = (column: number) => (column / (props.columns - 1)) * (state.width - state.padding * 2) + state.padding
+    const getXByEpsodes = (column: number) => (column / (props.episodes.length - 1)) * (state.width - state.padding * 2) + state.padding
     const getYByPercentage = (percentage: number) => (percentage * (state.height - state.paddingTop - state.paddingBottom)) + state.paddingTop
 
     const pathGenerate = (row: Row) => row.ranking.map((v, i) => {
       const action = i === 0 ? 'M' : 'L'
-      const x = getXByColumn(i)
+      const x = getXByEpsodes(i)
       const y = getYByPercentage(v.rank / props.maxRank)
       return `${action}${x},${y}`
     }).join('')
@@ -52,7 +52,7 @@ export default defineComponent({
       }
 
       return props.selectedRow.ranking.map((v, i) => ({
-        x: getXByColumn(i),
+        x: getXByEpsodes(i),
         y: getYByPercentage(v.rank / props.maxRank),
         text: v.rank,
         color: getRowColor(props.selectedRow!),
@@ -85,9 +85,8 @@ export default defineComponent({
       state,
       circles,
       colors,
-      episodes,
 
-      getXByColumn,
+      getXByEpsodes,
       getYByPercentage,
 
       pathGenerate,

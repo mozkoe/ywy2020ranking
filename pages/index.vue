@@ -7,12 +7,13 @@
         <!-- Line Graph -->
         <div class="plot">
           <LineChart
+            v-if="state.episodes.length"
             :list="state.svgData"
             :selected-row="state.selectedRow"
             :max-rank="state.maxRank"
             :handle-line-enter="handleLineEnter"
             :handle-line-leave="handleLineLeave"
-            :columns="episodes.length"
+            :episodes="state.episodes"
           />
         </div>
 
@@ -43,7 +44,7 @@
             <div class="text-xs mt-1 text-gray-600 flex">
               <span class="font-bold">当前排名：</span>
               {{
-                state.selectedRow.ranking.length === episodes.length ?
+                state.selectedRow.ranking.length === state.episodes.length ?
                   state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank :
                   '-'
               }}
@@ -130,7 +131,7 @@
                   {{ headers[0].text }}
                 </div>
                 <div class="mobile-row-content">
-                  {{ item.ranking.length === episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
+                  {{ item.ranking.length === state.episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
                 </div>
               </td>
 
