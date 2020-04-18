@@ -128,6 +128,14 @@ export default defineComponent({
       }
     })
 
+    const getAbsRanking = (rank: number | string) => {
+      if (typeof rank === 'string') {
+        return '-'
+      }
+
+      return Math.abs(rank)
+    }
+
     return {
       i: {
         mdiMagnify,
@@ -142,6 +150,7 @@ export default defineComponent({
 
       handleLineEnter,
       handleLineLeave,
+      getAbsRanking,
     }
   },
 })

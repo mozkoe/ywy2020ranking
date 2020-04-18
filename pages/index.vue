@@ -40,15 +40,25 @@
             <div class="info-name text-lg">
               {{ state.selectedRow.name }}
             </div>
-            <div class="text-xs mt-1 text-gray-600">
+            <div class="text-xs mt-1 text-gray-600 flex">
               <span class="font-bold">当前排名：</span>
               {{
                 state.selectedRow.ranking.length === episodes.length ?
                   state.selectedRow.ranking[state.selectedRow.ranking.length - 1].rank :
                   '-'
               }}
+
+              <span class="flex items-center ml-4">
+                <span class="font-bold">排名变动：</span>
+
+                <img src="~assets/images/up-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta < 0">
+                <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta === 0">
+                <img src="~assets/images/down-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta > 0">
+
+                <span class="flex ml-1">{{ state.selectedRow.rankDelta === '-' ? '-' : getAbsRanking(state.selectedRow.rankDelta) }}</span>
+              </span>
             </div>
-            <div class="info-letter mt-1 flex justify-center align-center">
+            <div class="info-letter mt-1 flex align-center">
               <div class="text-xs flex-none self-center text-gray-600 font-bold">历史评级：</div>
 
               <div class="flex flex-wrap">
@@ -169,7 +179,7 @@
                     <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
                     <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta > 0">
 
-                    <span class="flex ml-2">{{ item.rankDelta === '-' ? '-' : Math.abs(item.rankDelta) }}</span>
+                    <span class="flex ml-2">{{ item.rankDelta === '-' ? '-' : getAbsRanking(item.rankDelta) }}</span>
                   </span>
                 </div>
               </td>

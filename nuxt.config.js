@@ -89,7 +89,6 @@ export default {
 
       const sass = config.module.rules.find((v) => v.test && v.test.toString().includes('sass'))
       const postcss = sass.oneOf[1].use.find((v) => v.loader === 'postcss-loader')
-
       const postcssIndex = sass.oneOf[1].use.indexOf(postcss)
 
       const mySass = {
@@ -118,6 +117,7 @@ export default {
 
       config.module.rules.push(mySass)
     },
+
     postcss: {
       plugins: {
         'postcss-import': {},
