@@ -40,6 +40,9 @@ export default defineComponent({
 
       const a = dataString.replace(/\r/g, '').split('\n').filter(Boolean).map((v) => v.split(','))
       const [csvHeader, ...data] = a
+      csvHeader
+        .filter(hearder => hearder.startsWith('ep'))
+        .map(hearder => episodes.push(parseInt(hearder.substring('ep'.length))))
 
       const formatted: Array<Row> = data.map((line) => csvHeader.reduce((p, c, i) => {
         p[c] = line[i]

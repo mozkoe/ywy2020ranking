@@ -5,7 +5,7 @@ export const baseUrl = process.env.NODE_ENV === 'production'
   : ''
 
 // add episodes when csv fle updated
-export const episodes = [2, 4, 6, 10, 12]
+export const episodes: Number[] = []
 
 export const colors = {
   'A': '#fb9fcb',
