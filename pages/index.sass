@@ -108,6 +108,7 @@ path.ranking
 
   .profile
     overflow: hidden
+
     .pic-wrapper
       width: 180px
       min-width: 180px
@@ -115,15 +116,27 @@ path.ranking
       height: 180px
       min-height: 180px
       // max-height: 250px
-      background: #ededed
-      +lt(960)
+
+      +lt(600)
         width: 118px
         min-width: 118px
         height: 118px
         min-height: 118px
-      img
+
+      .pic
         width: 100%
         pointer-events: none
+        transition: 0.19s cubic-bezier(0.4, 0, 0.2, 1) opacity
+
+        &.placeholder-pic
+          opacity: 0.2
+
+        &.avatar-enter, &.avatar-leave-to
+          opacity: 0
+
+        &.avatar-leave, &.avatar-enter-to
+          opacity: 1
+
     +lt(960)
       padding-left: 10px
 
@@ -149,17 +162,11 @@ path.ranking
   +lt(960)
     flex: none
     margin-left: inherit
-    padding: 0 18px
+    padding: 0 12px
 
-  .table-row
-    .mobile-row-header
-      display: none
-      box-sizing: border-box
-
+  .table-row-more
     +lt(600)
-      &:not(:last-child)
-        border-bottom: 1px solid #bbb
-
+      display: block
       td
         display: flex
         justify-content: space-between
@@ -169,3 +176,15 @@ path.ranking
         .mobile-row-header
           display: block
           font-weight: bold
+
+  .table-row
+    .mobile-row-header
+      display: none
+      box-sizing: border-box
+
+    .ranking-change
+      justify-self: start
+
+    +lt(600)
+      &:not(:last-child)
+        border-bottom: 1px solid #bbb

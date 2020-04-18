@@ -17,12 +17,23 @@
         </div>
 
         <!-- Profile -->
-        <div class="profile flex mt-4 mb-6 ml-lg-5" v-if="state.selectedRow">
-          <div class="pic-wrapper">
+        <div
+          class="profile flex mt-4 mb-6 ml-lg-5"
+          v-if="state.selectedRow"
+        >
+          <div class="pic-wrapper relative">
             <img
-              :src="`${baseUrl}/avatars/${state.selectedRow.name}.png`"
-              class="pic"
+              src="~/assets/images/ywy2.jpg"
+              class="pic placeholder-pic absolute w-full left-0 top-0"
             >
+            <transition mode="out-in" name="avatar">
+              <img
+                v-for="url of imageList"
+                :src="url"
+                :key="url"
+                class="pic avatar-pic absolute w-full left-0 top-0"
+              >
+            </transition>
           </div>
 
           <div class="text-wrapper ml-4">
@@ -63,77 +74,97 @@
 
       <!-- table -->
       <div class="chart-table mt-lg-0">
-        <div class="flex justify-between align-center mb-6 title-wrap">
+        <div class="flex justify-between align-center title-wrap">
           <span class="flex font-bold title self-end">当前排名</span>
           <span class="flex">
             <v-text-field
               v-model="state.search"
-              append-icon="mdi-magnify"
               label="Search"
               single-line
               hide-details
-            />
+            >
+              <template #append>
+                <v-icon>{{ i.mdiMagnify }}</v-icon>
+              </template>
+            </v-text-field>
           </span>
         </div>
 
         <v-data-table
-          :headers="header"
+          :headers="state.showMore ? header : headerMobile"
           :items="state.data"
           fixed-header
           disable-pagination
           hide-default-footer
-          height="500"
+          :height="state.tableHeight"
           sort-by="ranking"
           :sort-desc="false"
           :search="state.search"
+          :mobile-breakpoint="state.showMore ? 600 : 0"
         >
+          <template #top>
+            <div class="flex">
+              <v-switch :ripple="false" v-model="state.showMore" label="More info" />
+            </div>
+          </template>
           <template #item="{ item, headers }">
             <tr
               class="table-row"
+              :class="{ 'table-row-more': state.showMore }"
               @mouseenter="handleLineEnter(item)"
               @click="handleLineEnter(item)"
             >
+              <!-- ranking -->
               <td>
-                <div class="mobile-row-header">
+                <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[0].text }}
                 </div>
                 <div class="mobile-row-content">
                   {{ item.ranking.length === episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
                 </div>
               </td>
+
+              <!-- name -->
               <td>
-                <div class="mobile-row-header">
+                <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[1].text }}
                 </div>
                 <div class="mobile-row-content">
                   {{ item.name }}
                 </div>
               </td>
+
+              <!-- company -->
               <td>
-                <div class="mobile-row-header">
+                <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[2].text }}
                 </div>
                 <div class="mobile-row-content">
                   {{ item.company }}
                 </div>
               </td>
+
+              <!-- level list -->
               <td
                 v-for="i of 3"
                 :key="i"
+                :class="{ 'hidden': !state.showMore }"
               >
-                <div class="mobile-row-header">
+                <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[2 + i].text }}
                 </div>
                 <div class="mobile-row-content">
                   <LevelCircle :level="item.level[i - 1] ? item.level[i - 1].level : null" />
                 </div>
               </td>
+
+              <!-- ranking change -->
               <td>
-                <div class="mobile-row-header">
+                <div class="mobile-row-header" v-if="state.showMore">
                   {{ headers[6].text }}
                 </div>
-                <div class="mobile-row-content">
-                  <span class="flex justify-center items-center">
+                <div class="mobile-row-content ranking-change">
+                  <span class="flex items-center">
                     <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta < 0">
                     <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
                     <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta > 0">

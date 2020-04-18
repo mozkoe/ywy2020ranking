@@ -1,3 +1,5 @@
+const purgecss = require('@fullhuman/postcss-purgecss')
+
 export default {
   mode: 'spa',
   /*
@@ -32,6 +34,7 @@ export default {
   */
   plugins: [
     '~/plugins/composition-api.ts',
+    '~/plugins/tailwind.ts',
   ],
 
   router: {
@@ -65,6 +68,9 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      icons: 'mdiSvg',
+    },
     treeShake: true,
   },
   /*
@@ -80,6 +86,37 @@ export default {
         test: /.csv$/,
         use: 'raw-loader',
       })
+
+      const sass = config.module.rules.find((v) => v.test && v.test.toString().includes('sass'))
+      const postcss = sass.oneOf[1].use.find((v) => v.loader === 'postcss-loader')
+
+      const postcssIndex = sass.oneOf[1].use.indexOf(postcss)
+
+      const mySass = {
+        test: /tailwind\.tailwind/,
+        use: [
+          ...sass.oneOf[1].use.slice(0, postcssIndex),
+          {
+            loader: 'postcss-loader',
+            options: {
+              ...postcss.options,
+              plugins: [
+                ...postcss.options.plugins,
+                purgecss({
+                  content: [
+                    './pages/**/*.vue',
+                    './pages/**/*.tsx',
+                  ],
+                  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+                }),
+              ],
+            },
+          },
+          ...sass.oneOf[1].use.slice(postcssIndex + 1),
+        ],
+      }
+
+      config.module.rules.push(mySass)
     },
     postcss: {
       plugins: {

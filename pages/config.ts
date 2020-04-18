@@ -40,39 +40,56 @@ export const header = [
     value: 'ranking',
     sortable: true,
     sort: compareRank,
-    align: 'left',
     width: '10%',
   },
   {
     text: '姓名',
     value: 'name',
-    align: 'left',
     width: '20%',
   },
   {
     text: '经纪公司',
     value: 'company',
-    // sortable: false,
-    align: 'left',
   },
   {
     text: '初评',
     value: 'level[0].level',
-    align: 'left',
   },
   {
     text: '公演1',
     value: 'level[1].level',
-    align: 'left',
   },
   {
     text: '主题曲',
     value: 'level[2].level',
-    align: 'left',
   },
   {
     text: '排名变动',
     value: 'rankDelta',
-    align: 'left',
+  },
+]
+
+export const headerMobile = [
+  {
+    text: '排名',
+    value: 'ranking',
+    sortable: true,
+    sort: compareRank,
+    width: '20%',
+  },
+  {
+    text: '姓名',
+    value: 'name',
+    width: '25%',
+  },
+  {
+    text: '经纪公司',
+    value: 'company',
+    width: '25%',
+  },
+  {
+    text: '排名变动',
+    value: 'rankDelta',
+    width: '15%',
   },
 ]

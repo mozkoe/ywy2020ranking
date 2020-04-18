@@ -1,4 +1,7 @@
 export default {
+  icons: {
+    iconfont: 'mdiSvg',
+  },
   breakpoint: {
     thresholds: {
       xs: 340,

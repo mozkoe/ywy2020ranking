@@ -23,4 +23,7 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+# analyze project
+$ yarn a
 ```

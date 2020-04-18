@@ -1,5 +1,8 @@
-import { defineComponent, onMounted, reactive } from '@vue/composition-api'
-import { header, colors, episodes, compareRank, baseUrl } from './config'
+import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
+
+import { mdiMagnify } from '@mdi/js'
+
+import { header, headerMobile, colors, episodes, compareRank, baseUrl } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
 import LevelCircle from './helpers/LevelCircle/LevelCircle.vue'
@@ -23,9 +26,17 @@ export default defineComponent({
       selectedRow: null as null | Row,
       maxRank: 100,
       search: '',
+      width: 0,
+      tableHeight: 500,
+      showMore: false,
     })
 
     onMounted(async () => {
+      // init table colunm
+      if (document.body.clientWidth > 960) {
+        state.showMore = true
+      }
+
       const dataString = await (await import('./ywy_rank_ep10.csv')).default
       const a = dataString.replace(/\r/g, '').split('\n').filter(Boolean).map((v) => v.split(','))
       const [csvHeader, ...data] = a
@@ -106,12 +117,31 @@ export default defineComponent({
       state.selectedRow = null
     }
 
+    const imageList = reactive([] as Array<string>)
+
+    watch(() => state.selectedRow, () => {
+      if (!state.selectedRow) {
+        return
+      }
+      const url = `${baseUrl}/avatars/${state.selectedRow.name}.png`
+      imageList.push(url)
+
+      while (imageList.length > 1) {
+        imageList.shift()
+      }
+    })
+
     return {
+      i: {
+        mdiMagnify,
+      },
       baseUrl,
       state,
       colors,
       header,
+      headerMobile,
       episodes,
+      imageList,
 
       handleLineEnter,
       handleLineLeave,
