@@ -25,6 +25,7 @@
           <div class="pic-wrapper relative">
             <img
               src="~/assets/images/ywy2.jpg"
+              alt="avatar"
               class="pic placeholder-pic absolute w-full left-0 top-0"
             >
             <transition mode="out-in" name="avatar">
@@ -33,6 +34,7 @@
                 :src="url"
                 :key="url"
                 class="pic avatar-pic absolute w-full left-0 top-0"
+                alt="avatar"
               >
             </transition>
           </div>

@@ -1,7 +1,7 @@
 {
   "name": "ywy2020ranking",
   "version": "1.0.0",
-  "description": "青春有你 2, 青春有你 2 排行榜, 青春有你 2 排名,青春有你 2 历史排名, 青春有你 2 最新排名, 爱奇艺, iQiyi's Youth With You 2020 Ranking, iQiyi, Youth With You 2020",
+  "description": "获取 爱奇艺 - 青春有你第2季 最新排名信息, iQiyi's Youth With You 2020 Ranking",
   "author": "mozkoe",
   "private": true,
   "scripts": {

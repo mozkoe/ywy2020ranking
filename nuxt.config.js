@@ -6,7 +6,8 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '青春有你 2 排行榜 - 爱奇艺 - %s',
+    // titleTemplate: '青春有你2 排行榜 - %s',
+    titleTemplate: '青春有你2 - 排行榜',
     title: "iQiyi's Youth With You 2020 Ranking" || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
