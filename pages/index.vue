@@ -37,7 +37,7 @@
             </transition>
           </div>
 
-          <div class="text-wrapper ml-4">
+          <div class="text-wrapper ml-4 flex flex-col">
             <div class="info-name text-lg flex items-center">
               {{ state.selectedRow.name }}
 
@@ -86,7 +86,7 @@
               {{ state.selectedRow.company }}
 
               <!-- info -->
-              <span class="ml-2">{{ state.selectedRow.specialNote }}</span>
+              <span class="ml-2" v-if="state.selectedRow.specialNote">{{ state.selectedRow.specialNote }}</span>
               <span class="ml-2" v-if="state.selectedRow.ranking.length !== state.episodes.length && !state.selectedRow.specialNote">
                 已淘汰
               </span>
