@@ -1,4 +1,10 @@
-import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
+import {
+  defineComponent,
+  onMounted,
+  reactive,
+  watch,
+  getCurrentInstance,
+} from '@vue/composition-api'
 import { DataSortFunction } from 'vuetify'
 import { mdiMagnify } from '@mdi/js'
 import { header, headerMobile, colors, compareRank, baseUrl, csvEpisodesPrefix, electionNumber } from './config'
@@ -72,9 +78,17 @@ export default defineComponent({
       showMore: false,
       episodes: [] as Array<number>,
       levelMax: 0,
+      name: '',
     })
 
+    const instance = getCurrentInstance()!
+
     onMounted(async () => {
+      // reveal
+      state.name = typeof instance.$route.query.name === 'string'
+        ? instance.$route.query.name
+        : ''
+
       // init table colunm
       if (document.body.clientWidth > 960) {
         state.showMore = true
@@ -147,13 +161,25 @@ export default defineComponent({
 
       state.levelMax = getLevelMaxLength(state.data)
 
-      state.selectedRow = state.data.reduce((p, c) => {
+      const defaultSelectItem = state.data.reduce((p, c) => {
         const pr = p.ranking
         const cr = c.ranking
         return compareRank(pr, cr) < 0 ? p : c
       })
+
+      state.selectedRow = state.name ? state.data.find((arr) => arr.name === state.name) ?? defaultSelectItem : defaultSelectItem
+
       state.selectedRow.selected = true
     })
+
+    const replaceLocationByName = (name: string) => {
+      if (name === state.name) {
+        return
+      }
+
+      state.name = name
+      instance.$router.replace({ query: { name } })
+    }
 
     const handleLineEnter = (row: Row) => {
       if (state.selectedRow) {
@@ -163,6 +189,8 @@ export default defineComponent({
       state.selectedRow = row
       state.svgData.splice(state.svgData.indexOf(row), 1)
       state.svgData.push(row)
+
+      replaceLocationByName(row.name)
     }
 
     const handleLineLeave = (row: Row) => {
