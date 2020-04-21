@@ -153,7 +153,6 @@
                 <div class="mobile-row-content flex items-center">
                   {{ item.ranking.length === state.episodes.length ? item.ranking[item.ranking.length - 1].rank : '-' }}
 
-                  <!-- <img v-if="electionNumber > index" src="~/assets/images/elected.png" class="elected"> -->
                   <img
                     v-if="item.ranking.length === state.episodes.length &&
                       item.ranking[item.ranking.length - 1].rank <= electionNumber"
