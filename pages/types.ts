@@ -6,7 +6,7 @@ export interface Row extends RowState {
   name: string
   company: string
   id: number
-  rankDelta: number | string
+  rankDelta: number | undefined
   level: Array<{
     name: string
     level: LevelEnum
@@ -18,6 +18,7 @@ export interface Row extends RowState {
   }>
   latestRank: number
   currentRank: number
+  stillAlive: number
 }
 
 export enum LevelEnum {

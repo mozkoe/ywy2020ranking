@@ -1,9 +1,11 @@
 import { defineComponent, onMounted, reactive, watch } from '@vue/composition-api'
+import { DataSortFunction } from 'vuetify'
 import { mdiMagnify } from '@mdi/js'
 import { header, headerMobile, colors, compareRank, baseUrl, csvEpisodesPrefix, electionNumber } from './config'
 import { Row } from './types'
 import LineChart from './helpers/LineChart/LineChart.vue'
 import LevelCircle from './helpers/LevelCircle/LevelCircle.vue'
+import { getObjectValueByPath } from './utils'
 
 const getRank = (n: string) => {
   if (n === '-') {
@@ -18,6 +20,40 @@ const getLevelMaxLength = (data: Array<Row>): number => {
 
   return maxLength
 }
+
+const tableSort: DataSortFunction<Row> = (arr, sortBy, sortDesc, _locale, customSorter) => arr.sort((valueA, valueB) => {
+  const compareResult = sortBy.reduce((prevSortResult, sortKey, headerIndex) => {
+    if (prevSortResult !== 0) {
+      return prevSortResult
+    }
+
+    const valueByKeyA = getObjectValueByPath(valueA, sortKey)
+    const valueByKeyB = getObjectValueByPath(valueB, sortKey)
+
+    const stillAliveResult = valueB.stillAlive - valueA.stillAlive
+
+    if (stillAliveResult !== 0) {
+      return stillAliveResult
+    }
+
+    const sortKeyDesc = sortDesc[headerIndex]
+    if (customSorter?.[sortKey]) {
+      return sortKeyDesc
+        ? -customSorter[sortKey](valueByKeyA, valueByKeyB)
+        : customSorter[sortKey](valueByKeyA, valueByKeyB)
+    }
+
+    if (valueByKeyA > valueByKeyB) {
+      return sortKeyDesc ? -1 : 1
+    }
+    if (valueByKeyA < valueByKeyB) {
+      return sortKeyDesc ? 1 : -1
+    }
+    return 0
+  }, 0)
+
+  return compareResult
+})
 
 export default defineComponent({
   components: {
@@ -60,18 +96,18 @@ export default defineComponent({
         return p
       }, {} as any)).map((row, rowIndex) => {
         const r: any = {}
-        r.name = row.Name
-        r.company = row.Company
+        r.name = row.name
+        r.company = row.company
         r.id = rowIndex
         r.level = [{
-          name: 'Level Audition',
-          level: row['Level Audition'],
+          name: 'level audition',
+          level: row['level audition'],
         }, {
-          name: 'Re-Evaluation',
-          level: row['Re-Evaluation'],
+          name: 're evaluation',
+          level: row['re evaluation'],
         }, {
-          name: 'Main-Title',
-          level: row['Main-Title'],
+          name: 'main title',
+          level: row['main title'],
         }].filter((v) => !!v.level)
 
         r.specialNote = row.note
@@ -90,10 +126,10 @@ export default defineComponent({
         const secondLastRank = r.ranking[r.ranking.length - 2]?.rank
 
         // mark out member
-        r.isEliminated = r.ranking.length !== state.episodes.length
+        r.stillAlive = Number(row['still alive'])
 
-        r.rankDelta = Number.isNaN(Number(lastRank)) || Number.isNaN(Number(secondLastRank))
-          ? '-'
+        r.rankDelta = (Number.isNaN(Number(lastRank)) || Number.isNaN(Number(secondLastRank))) || !r.stillAlive
+          ? undefined
           : Number(secondLastRank) - Number(lastRank)
 
         return {
@@ -167,6 +203,7 @@ export default defineComponent({
       imageList,
       electionNumber,
 
+      tableSort,
       handleLineEnter,
       handleLineLeave,
       getAbsRanking,

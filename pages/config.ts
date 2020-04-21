@@ -1,3 +1,4 @@
+import { DataTableHeader } from 'vuetify'
 import { Row } from './types'
 
 export const baseUrl = process.env.NODE_ENV === 'production'
@@ -37,7 +38,7 @@ export const compareRank = (a: Row['ranking'], b: Row['ranking']) => {
   return fa.rank - fb.rank
 }
 
-export const header = [
+export const header: Array<DataTableHeader> = [
   {
     text: '排名',
     value: 'ranking',

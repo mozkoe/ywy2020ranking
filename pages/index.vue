@@ -89,9 +89,6 @@
 
               <!-- info -->
               <span class="ml-2" v-if="state.selectedRow.specialNote">{{ state.selectedRow.specialNote }}</span>
-              <span class="ml-2" v-if="state.selectedRow.ranking.length !== state.episodes.length && !state.selectedRow.specialNote">
-                已淘汰
-              </span>
             </div>
           </div>
         </div>
@@ -126,6 +123,7 @@
           :sort-desc="false"
           :search="state.search"
           :mobile-breakpoint="state.showMore ? 600 : 0"
+          :custom-sort="tableSort"
         >
           <template #top>
             <div class="flex">
@@ -137,7 +135,7 @@
               class="table-row"
               :class="{
                 'table-row-more': state.showMore,
-                'isEliminated': item.isEliminated,
+                'isEliminated': !item.stillAlive,
                 'currentElected': electionNumber > index,
               }"
               @mouseenter="handleLineEnter(item)"
@@ -205,7 +203,7 @@
                     <img src="~assets/images/up-arrow.png" class="arrow" v-if="item.rankDelta > 0">
                     <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="item.rankDelta === 0">
                     <img src="~assets/images/down-arrow.png" class="arrow" v-if="item.rankDelta < 0">
-                    <span class="flex ml-1">{{ item.rankDelta === '-' ? '-' : getAbsRanking(item.rankDelta) }}</span>
+                    <span class="flex ml-1">{{ item.rankDelta === undefined ? '-' : getAbsRanking(item.rankDelta) }}</span>
                   </span>
                 </div>
               </td>
