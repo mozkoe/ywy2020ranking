@@ -50,6 +50,7 @@ export const header: Array<DataTableHeader> = [
     text: '姓名',
     value: 'name',
     width: '20%',
+    sortable: false,
   },
   {
     text: '经纪公司',
@@ -86,6 +87,7 @@ export const headerMobile = [
     text: '姓名',
     value: 'name',
     width: '25%',
+    sortable: false,
   },
   {
     text: '经纪公司',
