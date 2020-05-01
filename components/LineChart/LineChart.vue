@@ -63,4 +63,4 @@
 </template>
 
 <script src="./LineChart.ts" lang="ts"></script>
-<style src="./LineChart.sass" lang="sass"></style>
+<style src="./LineChart.sass" lang="sass" scoped></style>

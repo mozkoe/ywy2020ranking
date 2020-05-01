@@ -6,26 +6,24 @@ export default {
   ** Headers of the page
   */
   head: {
-    // titleTemplate: '青春有你2 排行榜 - %s',
-    titleTemplate: '青春有你2 - 排行榜',
-    title: "iQiyi's Youth With You 2020 Ranking" || process.env.npm_package_name || '',
+    titleTemplate: '%s - mozkoe',
+    title: 'mozkoe 排名站' || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
-    ],
-    link: [
       {
-        rel: 'icon',
-        type: 'image/x-icon',
-        href: process.env.NODE_ENV === 'production'
-          ? '/ywy2020/favicon.ico'
-          : '/favicon.ico',
+        hid: 'description',
+        name: 'description',
+        content: '获取 101 系列节目选手排名, 排行榜' || process.env.npm_package_description || '',
       },
     ],
-    script: process.env.NODE_ENV === 'production' ? [
-      { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb' },
-    ] : undefined,
+    // link: [
+    //   {
+    //     rel: 'icon',
+    //     type: 'image/x-icon',
+    //     href: '/favicon.ico',
+    //   },
+    // ],
   },
   /*
   ** Customize the progress-bar color
@@ -45,9 +43,7 @@ export default {
   ],
 
   router: {
-    base: process.env.NODE_ENV === 'production'
-      ? '/ywy2020'
-      : '',
+    base: '',
   },
   /*
   ** Nuxt.js dev-modules
@@ -76,7 +72,6 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
-      font: true,
       icons: 'mdiSvg',
     },
     treeShake: true,

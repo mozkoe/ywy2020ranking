@@ -1,6 +1,6 @@
 import { defineComponent, computed, onMounted, reactive, watch, onUnmounted } from '@vue/composition-api'
-import { Row, LevelEnum } from '~/pages/types'
-import { colors } from '~/pages/config'
+import { Row, LevelEnum } from '~/pages/ywy2020/types'
+import { colors } from '~/pages/ywy2020/config'
 
 interface Props {
   list: Array<Row>

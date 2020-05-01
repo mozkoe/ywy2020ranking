@@ -1,10 +1,16 @@
 # iQiyi's Youth With You 2020 Rankings
 
+## Update
+
+Ready for Tencent Video's Creation Camp 2020.
+
+## Description
+
 [Youth With You 2020 Rankings](https://mozkoe.com/ywy2020/)
 
-An interactive ranking chart for iQiyi's Youth With You 2020 made with vue.js. I will updated this website after each episode as the season progressed.
+An interactive ranking chart for iQiyi's Youth With You 2020 made with Nuxt.js. I will updated this website after each episode as the season progressed.
 
-Inspired by ajyu124/p48ranking ;)
+Inspired by [ajyu124/p48ranking](https://github.com/ajyu124/p48ranking) ;)
 
 ![alt text](./assets/images/ywy2.jpg)
 
