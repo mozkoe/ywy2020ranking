@@ -1,7 +1,7 @@
 {
-  "name": "ywy2020ranking",
+  "name": "mozkoe_ranking_site",
   "version": "1.0.0",
-  "description": "获取 爱奇艺 - 青春有你第2季 最新排名信息, iQiyi's Youth With You 2020 Ranking",
+  "description": "Ranking site for the 101 series shows",
   "author": "mozkoe",
   "private": true,
   "scripts": {

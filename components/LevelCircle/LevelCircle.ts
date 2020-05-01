@@ -1,5 +1,5 @@
 import { defineComponent, computed } from '@vue/composition-api'
-import { colors } from '~/pages/config'
+import { colors } from '~/pages/ywy2020/config'
 
 interface Props {
   level: string | undefined
