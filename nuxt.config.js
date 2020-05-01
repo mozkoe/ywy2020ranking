@@ -6,8 +6,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    // titleTemplate: '青春有你2 排行榜 - %s',
-    titleTemplate: '青春有你2 - 排行榜',
+    titleTemplate: "%s - mozkoe's ranking site",
     title: "iQiyi's Youth With You 2020 Ranking" || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -18,13 +17,12 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: process.env.NODE_ENV === 'production'
-          ? '/ywy2020/favicon.ico'
-          : '/favicon.ico',
+        href: '/favicon.ico',
       },
     ],
     script: process.env.NODE_ENV === 'production' ? [
-      { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb' },
+      // { src: 'https://hm.baidu.com/hm.js?f85040ca1e4d2e5c7cd8d89f6a774f9d' }, // index
+      // { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb' }, // ywy2020
     ] : undefined,
   },
   /*
@@ -76,7 +74,6 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
-      font: true,
       icons: 'mdiSvg',
     },
     treeShake: true,

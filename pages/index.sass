@@ -15,7 +15,7 @@ body
 /* Top */
 .banner
   background-color: #0564e9
-  background-image: url("~assets/images/banner.jpg")
+  background-image: url("https://ww1.sinaimg.cn/large/75856a56gy1gecxdqrhxbj21z40bs75i.jpg")
   background-position: center center
   background-repeat: no-repeat
   background-size: cover
@@ -26,44 +26,6 @@ body
 .banner img
   max-height: 120px
   pointer-events: none
-
-/* Misc */
-img.arrow
-  height: 10px
-
-.change
-  padding-left: 3px
-  font-weight: bold
-
-.change.up
-  color: #00a500
-
-.change.down
-  color: #d60a2a
-
-/* Graph */
-.axis path
-  fill: none
-  stroke: black
-
-.axis line
-  stroke: black
-
-path.ranking
-  fill: none
-  cursor: pointer
-
-.episodeLabel
-  fill: #888
-  text-anchor: middle
-
-.pie .arc text
-  text-anchor: middle
-  fill: #fff
-
-.pie .arc path
-  stroke: #f8f8f8
-  stroke-width: 3px
 
 .footer
   flex: none
@@ -78,6 +40,14 @@ path.ranking
 @mixin lt($width)
   @media screen and (max-width: ($width - 1px))
     @content
+
+.desc
+  margin-left: 40px
+  .font-rotate
+    transform: rotate(180deg)
+    text-align: right
+  +lt(960)
+    margin-left: 16px
 
 .main-wrapper
   padding: 0 40px
@@ -96,102 +66,6 @@ path.ranking
     height: 180px
 
 .main-wrapper
-  +lt(960)
-    flex-flow: column nowrap
-
-.chart-graph
-  flex: 1 1 50%
-
-  +lt(960)
-    flex: none
-
-  .profile
-    overflow: hidden
-
-    .elected-big
-      margin-top: 5px
-      width: 32px
-
-    .pic-wrapper
-      width: 180px
-      min-width: 180px
-      height: 180px
-      min-height: 180px
-
-      +lt(600)
-        width: 118px
-        min-width: 118px
-        height: 118px
-        min-height: 118px
-
-      .pic
-        width: 100%
-        pointer-events: none
-        transition: 0.19s cubic-bezier(0.4, 0, 0.2, 1) opacity
-
-        &.placeholder-pic
-          opacity: 0.2
-
-        &.avatar-enter, &.avatar-leave-to
-          opacity: 0
-
-        &.avatar-leave, &.avatar-enter-to
-          opacity: 1
-
-    +lt(960)
-      padding-left: 10px
-
-  +lt(960)
-    flex: none
-
-    .text-wrapper
-      margin-left: 24px
-
-      .info-name
-        font-size: 20px
-        font-weight: bold
-
-.v-data-table__wrapper
-  +lt(960)
-    border: 1px solid #f2f2f2
-    border-radius: 4px
-
-.chart-table
-  flex: 1 1 50%
-  margin-left: 26px
-
-  +lt(960)
-    flex: none
-    margin-left: inherit
-    padding: 0 12px
-
-  .table-row-more
-    +lt(600)
-      display: block
-      td
-        display: flex
-        justify-content: space-between
-        align-items: center
-        border: none !important
-
-        .mobile-row-header
-          display: block
-          font-weight: bold
-
-  .table-row
-    .mobile-row-header
-      display: none
-      box-sizing: border-box
-
-    .ranking-change
-      justify-self: start
-
-    +lt(600)
-      &:not(:last-child)
-        border-bottom: 1px solid #bbb
-
-  .isEliminated
-    background: #f6f6f6
-
-  .elected
-    width: 24px
+  flex-flow: column nowrap
+  // +lt(960)
+  //   flex-flow: column nowrap
