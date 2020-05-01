@@ -7,4 +7,5 @@ module.exports = {
       'xl': '1280px',
     },
   },
+  purge: false,
 }
