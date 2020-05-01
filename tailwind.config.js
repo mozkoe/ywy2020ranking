@@ -7,5 +7,7 @@ module.exports = {
       'xl': '1280px',
     },
   },
-  purge: false,
+  purge: [
+    './pages/**/*.vue',
+  ],
 }

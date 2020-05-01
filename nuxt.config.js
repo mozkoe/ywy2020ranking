@@ -1,5 +1,3 @@
-const purgecss = require('@fullhuman/postcss-purgecss')
-
 export default {
   mode: 'spa',
   /*
@@ -14,16 +12,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '获取 101 系列节目选手排名, 排行榜' || process.env.npm_package_description || '',
+        content: '获取 青春有你 / 101 系列节目 训练生最新排名, 排行榜' || process.env.npm_package_description || '',
       },
     ],
-    // link: [
-    //   {
-    //     rel: 'icon',
-    //     type: 'image/x-icon',
-    //     href: '/favicon.ico',
-    //   },
-    // ],
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
   ** Customize the progress-bar color
@@ -94,36 +86,6 @@ export default {
         test: /.csv$/,
         use: 'raw-loader',
       })
-
-      const sass = config.module.rules.find((v) => v.test && v.test.toString().includes('sass'))
-      const postcss = sass.oneOf[1].use.find((v) => v.loader === 'postcss-loader')
-      const postcssIndex = sass.oneOf[1].use.indexOf(postcss)
-
-      const mySass = {
-        test: /tailwind\.tailwind/,
-        use: [
-          ...sass.oneOf[1].use.slice(0, postcssIndex),
-          {
-            loader: 'postcss-loader',
-            options: {
-              ...postcss.options,
-              plugins: [
-                ...postcss.options.plugins,
-                purgecss({
-                  content: [
-                    './pages/**/*.vue',
-                    './pages/**/*.tsx',
-                  ],
-                  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
-                }),
-              ],
-            },
-          },
-          ...sass.oneOf[1].use.slice(postcssIndex + 1),
-        ],
-      }
-
-      config.module.rules.push(mySass)
     },
 
     postcss: {
