@@ -1,7 +1,7 @@
 const purgecss = require('@fullhuman/postcss-purgecss')
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
   ** Headers of the page
   */
@@ -71,10 +71,9 @@ export default {
   */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    // defaultAssets: {
-    //   // font: true,
-    //   icons: 'mdiSvg',
-    // },
+    defaultAssets: {
+      icons: 'mdiSvg',
+    },
     treeShake: true,
   },
   /*
