@@ -1,9 +1,7 @@
 import { DataTableHeader } from 'vuetify'
 import { Row } from './types'
 
-export const baseUrl = process.env.NODE_ENV === 'production'
-  ? '/ywy2020'
-  : ''
+export const baseUrl = ''
 
 // csv title, eg: ep1
 export const csvEpisodesPrefix = 'ep'

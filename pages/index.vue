@@ -3,7 +3,7 @@
     <div class="banner" />
 
     <div class="desc">
-      <div class="font-bold">mozkoe's ranking site</div>
+      <div class="font-bold">mozkoe 排名站</div>
       <div class="mt-2 font-rotate">easy peasy lemon squeezy</div>
     </div>
 
@@ -20,7 +20,7 @@
 
     <div class="footer flex mt-10">
       <footer>
-        mozkoe's ranking site:
+        mozkoe 排名站:
         <a href="https://mozkoe.com">https://mozkoe.com</a>
       </footer>
     </div>

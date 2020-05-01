@@ -62,14 +62,22 @@ const tableSort: DataSortFunction<Row> = (arr, sortBy, sortDesc, _locale, custom
 })
 
 export default defineComponent({
-  // head: {},
-  // head: () => ({
-  //   title: '22',
-  //   meta: [
-  //     // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-  //     { hid: 'description', name: 'description', content: 'My custom description' },
-  //   ],
-  // }),
+  head: () => ({
+    title: '爱奇艺 青春有你 2 - 排行榜',
+    meta: [
+      {
+        hid: 'ywy2020',
+        name: 'description',
+        content: "获取 爱奇艺 - 青春有你第2季 最新排名信息, iQiyi's Youth With You 2020 Ranking",
+      },
+    ],
+    link: [
+      { rel: 'icon', href: '/ywy2020/favicon.ico' },
+    ],
+    script: [
+      { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb', async: true, defer: true },
+    ], // ywy2020
+  }),
   components: {
     LineChart,
     LevelCircle,
@@ -245,8 +253,4 @@ export default defineComponent({
       getAbsRanking,
     }
   },
-})
-
-const a = defineComponent({
-
 })

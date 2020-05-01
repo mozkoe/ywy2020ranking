@@ -1,20 +1,16 @@
 import {
   defineComponent,
-  onMounted,
   reactive,
 } from '@vue/composition-api'
 
 export default defineComponent({
-  components: {
-    // LineChart,
-    // LevelCircle,
-  },
+  head: () => ({
+    script: [
+      { src: 'https://hm.baidu.com/hm.js?f85040ca1e4d2e5c7cd8d89f6a774f9d', async: true, defer: true },
+    ], // index
+  }),
   setup: () => {
     const state = reactive({
-      //
-    })
-
-    onMounted(async () => {
       //
     })
 
