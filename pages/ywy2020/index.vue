@@ -61,14 +61,14 @@
               <span class="flex items-center ml-4">
                 <span class="font-bold">排名变动：</span>
 
-                <span class="flex items-center" v-if="state.selectedRow.rankDelta">
+                <span class="flex items-center" v-if="state.selectedRow.rankDelta !== undefined">
                   <img src="~assets/images/up-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta > 0">
                   <img src="~assets/images/neutral-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta === 0">
                   <img src="~assets/images/down-arrow.png" class="arrow" v-if="state.selectedRow.rankDelta < 0">
                   <span class="flex ml-1">{{ getAbsRanking(state.selectedRow.rankDelta) }}</span>
                 </span>
 
-                <span class="flex items-center" v-if="!state.selectedRow.rankDelta">
+                <span class="flex items-center" v-if="state.selectedRow.rankDelta === undefined">
                   -
                 </span>
               </span>

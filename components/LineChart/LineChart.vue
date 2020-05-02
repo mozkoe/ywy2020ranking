@@ -22,7 +22,7 @@
     </g>
     <g>
       <path
-        v-for="line of props.list.filter((v) => v.selected)"
+        v-for="line of props.list"
         :key="line.id"
         class="ranking"
         :class="{
@@ -31,7 +31,7 @@
         :d="pathGenerate(line)"
         :style="{
           stroke: getRowColor(line),
-          'stroke-width': line.selected ? 4 : 2,
+          'stroke-width': line.selected ? 4 : 1,
           opacity: line.selected ? 1 : 0.1,
         }"
         @mouseenter="props.handleLineEnter(line)"
@@ -47,7 +47,7 @@
         :cx="circle.x"
         :cy="circle.y"
         :fill="circle.color"
-        r="18"
+        r="16"
       />
       <text
         class="notch-text"

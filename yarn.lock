@@ -1442,7 +1442,7 @@
 
 "@typescript-eslint/experimental-utils@2.30.0":
   version "2.30.0"
-  resolved "https://registry.npm.taobao.org/@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-2.30.0.tgz?cache=0&sync_timestamp=1588287343729&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Fexperimental-utils%2Fdownload%2F%40typescript-eslint%2Fexperimental-utils-2.30.0.tgz#9845e868c01f3aed66472c561d4b6bac44809dd0"
+  resolved "https://registry.npm.taobao.org/@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-2.30.0.tgz?cache=0&sync_timestamp=1588353061022&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Fexperimental-utils%2Fdownload%2F%40typescript-eslint%2Fexperimental-utils-2.30.0.tgz#9845e868c01f3aed66472c561d4b6bac44809dd0"
   integrity sha1-mEXoaMAfOu1mRyxWHUtrrESAndA=
   dependencies:
     "@types/json-schema" "^7.0.3"
@@ -1462,7 +1462,7 @@
 
 "@typescript-eslint/typescript-estree@2.30.0":
   version "2.30.0"
-  resolved "https://registry.npm.taobao.org/@typescript-eslint/typescript-estree/download/@typescript-eslint/typescript-estree-2.30.0.tgz#1b8e848b55144270255ffbfe4c63291f8f766615"
+  resolved "https://registry.npm.taobao.org/@typescript-eslint/typescript-estree/download/@typescript-eslint/typescript-estree-2.30.0.tgz?cache=0&sync_timestamp=1588353064038&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Ftypescript-estree%2Fdownload%2F%40typescript-eslint%2Ftypescript-estree-2.30.0.tgz#1b8e848b55144270255ffbfe4c63291f8f766615"
   integrity sha1-G46Ei1UUQnAlX/v+TGMpH492ZhU=
   dependencies:
     debug "^4.1.1"
@@ -3397,9 +3397,9 @@ ejs@^2.6.1:
   integrity sha1-SGYSh1c9zFPjZsehrlLDoSDuybo=
 
 electron-to-chromium@^1.3.413:
-  version "1.3.426"
-  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.426.tgz#d7301de9e40df83a40fe1f51b4463cfe170d1153"
-  integrity sha1-1zAd6eQN+DpA/h9RtEY8/hcNEVM=
+  version "1.3.427"
+  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.427.tgz#ea43d02908a8c71f47ebb46e09de5a3cf8236f04"
+  integrity sha1-6kPQKQioxx9H67RuCd5aPPgjbwQ=
 
 elliptic@^6.0.0:
   version "6.5.2"
@@ -5004,7 +5004,7 @@ isobject@^3.0.0, isobject@^3.0.1:
 
 jest-worker@^25.4.0:
   version "25.5.0"
-  resolved "https://registry.npm.taobao.org/jest-worker/download/jest-worker-25.5.0.tgz#2611d071b79cea0f43ee57a3d118593ac1547db1"
+  resolved "https://registry.npm.taobao.org/jest-worker/download/jest-worker-25.5.0.tgz?cache=0&sync_timestamp=1588422261312&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-worker%2Fdownload%2Fjest-worker-25.5.0.tgz#2611d071b79cea0f43ee57a3d118593ac1547db1"
   integrity sha1-JhHQcbec6g9D7lej0RhZOsFUfbE=
   dependencies:
     merge-stream "^2.0.0"
@@ -5461,9 +5461,9 @@ mime@1.6.0:
   integrity sha1-Ms2eXGRVO9WNGaVor0Uqz/BJgbE=
 
 mime@^2.3.1, mime@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.npm.taobao.org/mime/download/mime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
-  integrity sha1-vXuRE1/GsBzePpuuM9ZZtj2IV+U=
+  version "2.4.5"
+  resolved "https://registry.npm.taobao.org/mime/download/mime-2.4.5.tgz#d8de2ecb92982dedbb6541c9b6841d7f218ea009"
+  integrity sha1-2N4uy5KYLe27ZUHJtoQdfyGOoAk=
 
 mimic-fn@^2.1.0:
   version "2.1.0"
@@ -8158,10 +8158,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.4.2.tgz#bfd94a4a571c2393d94c3819a6f798c2f3a37073"
-  integrity sha1-v9lKSlccI5PZTDgZpveYwvOjcHM=
+tailwindcss@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.npm.taobao.org/tailwindcss/download/tailwindcss-1.4.4.tgz#a866f281f99ee7058fa3301ef0ce34b16141deb6"
+  integrity sha1-qGbygfme5wWPozAe8M40sWFB3rY=
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"
@@ -8431,7 +8431,7 @@ typedarray@^0.0.6:
 
 typescript@~3.8:
   version "3.8.3"
-  resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+  resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.8.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
   integrity sha1-QJ64VE6gM1cRIFhp7EWKsQnuEGE=
 
 ua-parser-js@^0.7.21:
@@ -8698,9 +8698,9 @@ vue-hot-reload-api@^2.3.0:
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
 
 vue-loader@^15.9.1:
-  version "15.9.1"
-  resolved "https://registry.npm.taobao.org/vue-loader/download/vue-loader-15.9.1.tgz#bd2ab8f3d281e51d7b81d15390a58424d142243e"
-  integrity sha1-vSq489KB5R17gdFTkKWEJNFCJD4=
+  version "15.9.2"
+  resolved "https://registry.npm.taobao.org/vue-loader/download/vue-loader-15.9.2.tgz?cache=0&sync_timestamp=1588347759078&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-loader%2Fdownload%2Fvue-loader-15.9.2.tgz#ae01f5f4c9c6a04bff4483912e72ef91a402c1ae"
+  integrity sha1-rgH19MnGoEv/RIORLnLvkaQCwa4=
   dependencies:
     "@vue/component-compiler-utils" "^3.1.0"
     hash-sum "^1.0.2"
