@@ -12,7 +12,7 @@ An interactive ranking chart for iQiyi's Youth With You 2020 made with Nuxt.js. 
 
 Inspired by [ajyu124/p48ranking](https://github.com/ajyu124/p48ranking) ;)
 
-![alt text](./assets/images/ywy2.jpg)
+![alt text](./assets/images/ywy2020.jpg)
 
 ## Build Setup
 
