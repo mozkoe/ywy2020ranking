@@ -19,19 +19,19 @@
     "tailwindcss": "^1.4.4"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@fullhuman/postcss-purgecss": "^2.2.0",
     "@mdi/js": "^5.1.45",
     "@nuxt/typescript-build": "^0.6.6",
     "@nuxtjs/vuetify": "^1.11.2",
-    "@typescript-eslint/eslint-plugin": "^2.30.0",
-    "@typescript-eslint/parser": "^2.30.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.1",
+    "@typescript-eslint/parser": "^2.30.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsdoc": "^24.0.0",
+    "eslint-plugin-jsdoc": "^24.0.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-vue": "^6.2.2",
     "raw-loader": "^4.0.1"
