@@ -4,7 +4,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - mozkoe 排名站',
+    titleTemplate: '%s',
     title: 'mozkoe 排名站' || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -12,7 +12,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: '获取 青春有你 / 101 系列节目 训练生最新排名, 排行榜' || process.env.npm_package_description || '',
+        content: '获取 青春有你2, 创造营2020 最新排名, 排行榜' || process.env.npm_package_description || '',
       },
     ],
     // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],

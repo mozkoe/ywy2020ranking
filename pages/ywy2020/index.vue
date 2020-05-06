@@ -146,12 +146,7 @@
       </div>
     </div>
 
-    <div class="footer flex mt-10">
-      <footer>
-        爱奇艺 青春有你 2 - 排行榜：
-        <router-link to="/">https://mozkoe.com</router-link>
-      </footer>
-    </div>
+    <Footer />
   </div>
 </template>
 

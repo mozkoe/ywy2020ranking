@@ -12,7 +12,7 @@
 
     <div class="main-wrapper flex">
       <div>
-        <router-link to="/ywy2020/">爱奇艺 青春有你 2 - 排行榜</router-link>
+        <router-link to="/ywy2020/" class="link">爱奇艺 青春有你 2 - 排行榜</router-link>
       </div>
 
       <div class="mt-4">
@@ -20,13 +20,7 @@
       </div>
     </div>
 
-
-    <div class="footer flex mt-10">
-      <footer>
-        mozkoe 排名站:
-        <router-link to="/">https://mozkoe.com</router-link>
-      </footer>
-    </div>
+    <Footer />
   </div>
 </template>
 

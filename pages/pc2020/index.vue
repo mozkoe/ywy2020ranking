@@ -146,12 +146,7 @@
       </div>
     </div>
 
-    <div class="footer flex mt-10">
-      <footer>
-        腾讯视频 创造营 2020 - 排行榜：
-        <router-link to="/">https://mozkoe.com</router-link>
-      </footer>
-    </div>
+    <Footer />
   </div>
 </template>
 

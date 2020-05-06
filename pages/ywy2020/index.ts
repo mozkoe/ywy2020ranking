@@ -10,6 +10,7 @@ import { Row } from '~/types/rankingTypes'
 import LineChart from '~/components/LineChart/LineChart'
 import LevelCircle from '~/components/LevelCircle/LevelCircle'
 import ProfileCard from '~/components/ProfileCard/ProfileCard'
+import Footer from '~/components/Footer/Footer.vue'
 import { getRank, getLevelMaxLength, tableSort, compareRank } from '~/utils'
 import { header, headerMobile, colors, baseUrl, csvEpisodesPrefix, electionNumber } from './config'
 
@@ -34,6 +35,7 @@ export default defineComponent({
     LineChart,
     LevelCircle,
     ProfileCard,
+    Footer,
   },
   setup: () => {
     const state = reactive({

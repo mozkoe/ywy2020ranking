@@ -1,16 +1,5 @@
 /*General*/
-html
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif
-
-body
-  background: #f8f8f8
-  font-size: 14px
-
-.small-caps
-  text-transform: uppercase
-  font-weight: 700
-  font-size: 12px
-  color: #888
+@import '~/assets/styles/layout.sass'
 
 /* Top */
 .banner
@@ -32,19 +21,12 @@ body
   background-image: url("https://i.loli.net/2020/05/06/vhb8J3DBUAtG4ms.jpg")
   background-size: auto 100px
 
-.footer
-  flex: none
-  padding: 20px 50px
-  font-size: 10px
-  background: #eee
-  color: #888
-
-.footer a
-  color: #888
-
 @mixin lt($width)
   @media screen and (max-width: ($width - 1px))
     @content
+
+.link
+  text-decoration: none
 
 .desc
   margin-left: 40px
@@ -63,14 +45,5 @@ body
   .title
     font-size: 24px
 
-.plot
-  width: 100%
-  height: 358px
-
-  +lt(960)
-    height: 180px
-
 .main-wrapper
   flex-flow: column nowrap
-  // +lt(960)
-  //   flex-flow: column nowrap

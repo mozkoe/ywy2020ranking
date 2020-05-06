@@ -10,6 +10,7 @@ import { Row } from '~/types/rankingTypes'
 import LineChart from '~/components/LineChart/LineChart'
 import LevelCircle from '~/components/LevelCircle/LevelCircle'
 import ProfileCard from '~/components/ProfileCard/ProfileCard'
+import Footer from '~/components/Footer/Footer.vue'
 import { getRank, getLevelMaxLength, tableSort, compareRank } from '~/utils'
 import { header, headerMobile, colors, baseUrl, csvEpisodesPrefix, electionNumber } from './config'
 
@@ -20,7 +21,7 @@ export default defineComponent({
       {
         hid: 'pc2020',
         name: '创造营 2020 最新排名信息',
-        content: "获取 腾讯视频 - 创造营 2020 最新排名信息, Tencent Video's Creation Camp 2020 Ranking",
+        content: "获取 腾讯视频 - 创造营 2020 最新排名信息, Tencent Video's Produce Camp 2020 Ranking",
       },
     ],
     link: [
@@ -34,6 +35,7 @@ export default defineComponent({
     LineChart,
     LevelCircle,
     ProfileCard,
+    Footer,
   },
   setup: () => {
     const state = reactive({
@@ -173,7 +175,7 @@ export default defineComponent({
       if (!state.selectedRow) {
         return
       }
-      const url = `${baseUrl}/ywy2020/avatars/${state.selectedRow.name}.png`
+      const url = `${baseUrl}/pc2020/avatars/${state.selectedRow.name}.jpg`
       imageList.push(url)
 
       while (imageList.length > 1) {

@@ -2,8 +2,12 @@ import {
   defineComponent,
   reactive,
 } from '@vue/composition-api'
+import Footer from '~/components/Footer/Footer.vue'
 
 export default defineComponent({
+  components: {
+    Footer,
+  },
   head: () => ({
     link: [
       { rel: 'icon', href: '/favicon.ico' },
