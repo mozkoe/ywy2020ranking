@@ -4,7 +4,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - mozkoe',
+    titleTemplate: '%s - mozkoe 排名站',
     title: 'mozkoe 排名站' || process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },

@@ -1,0 +1,108 @@
+// ranking page common styles
+html
+  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif
+
+body
+  background: #f8f8f8
+  font-size: 14px
+
+@import '~/assets/styles/misc.sass'
+
+/* Top */
+.banner
+  background-color: #0564e9
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: cover
+  height: 200px
+  text-align: center
+  margin-bottom: 30px
+
+.banner img
+  max-height: 120px
+  pointer-events: none
+
+.footer
+  flex: none
+  padding: 20px 50px
+  font-size: 10px
+  background: #eee
+  color: #888
+
+.footer a
+  color: #888
+
+@mixin lt($width)
+  @media screen and (max-width: ($width - 1px))
+    @content
+
+.main-wrapper
+  padding: 0 40px
+  +lt(960)
+    padding: 0 16px
+
+.title-wrap
+  .title
+    font-size: 24px
+
+.plot
+  width: 100%
+  height: 358px
+
+  +lt(960)
+    height: 180px
+
+.main-wrapper
+  +lt(960)
+    flex-flow: column nowrap
+
+.chart-graph
+  flex: 1 1 50%
+
+  +lt(960)
+    flex: none
+
+::v-deep .v-data-table__wrapper
+  +lt(960)
+    border: 1px solid #f2f2f2
+    border-radius: 4px
+
+.chart-table
+  flex: 1 1 50%
+  margin-left: 26px
+
+  +lt(960)
+    flex: none
+    margin-left: inherit
+    padding: 0 12px
+
+  .table-row-more
+    +lt(600)
+      display: block
+      td
+        display: flex
+        justify-content: space-between
+        align-items: center
+        border: none !important
+
+        .mobile-row-header
+          display: block
+          font-weight: bold
+
+  .table-row
+    .mobile-row-header
+      display: none
+      box-sizing: border-box
+
+    .ranking-change
+      justify-self: start
+
+    +lt(600)
+      &:not(:last-child)
+        border-bottom: 1px solid #bbb
+
+  .isEliminated
+    background: #f6f6f6
+
+  .elected
+    width: 24px

@@ -2,7 +2,7 @@
 
 ## Update
 
-Ready for Tencent Video's Creation Camp 2020.
+Ready for Tencent Video's Produce Camp 2020.
 
 ## Description
 

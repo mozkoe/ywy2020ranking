@@ -6,7 +6,7 @@ export const baseUrl = ''
 // csv title, eg: ep1
 export const csvEpisodesPrefix = 'ep'
 
-export const electionNumber = 9
+export const electionNumber = 7
 
 export const colors = {
   'A': '#fb9fcb',

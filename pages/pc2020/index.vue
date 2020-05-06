@@ -25,7 +25,7 @@
           :image-list="imageList"
           :episodes="state.episodes"
           :election-number="electionNumber"
-          img-path="/images/ywy2020.jpg"
+          img-path="/images/pc2020.jpg"
         />
       </div>
 
@@ -148,7 +148,7 @@
 
     <div class="footer flex mt-10">
       <footer>
-        爱奇艺 青春有你 2 - 排行榜：
+        腾讯视频 创造营 2020 - 排行榜：
         <router-link to="/">https://mozkoe.com</router-link>
       </footer>
     </div>

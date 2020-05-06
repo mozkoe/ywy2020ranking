@@ -5,6 +5,9 @@ import {
 
 export default defineComponent({
   head: () => ({
+    link: [
+      { rel: 'icon', href: '/favicon.ico' },
+    ],
     script: [
       { src: 'https://hm.baidu.com/hm.js?f85040ca1e4d2e5c7cd8d89f6a774f9d', async: true, defer: true },
     ], // index

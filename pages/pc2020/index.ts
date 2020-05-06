@@ -15,20 +15,20 @@ import { header, headerMobile, colors, baseUrl, csvEpisodesPrefix, electionNumbe
 
 export default defineComponent({
   head: () => ({
-    title: '爱奇艺 青春有你 2 - 排行榜',
+    title: '腾讯视频 创造营 2020 - 排行榜',
     meta: [
       {
-        hid: 'ywy2020',
-        name: '青春有你第2季 最新排名信息',
-        content: "获取 爱奇艺 - 青春有你第2季 最新排名信息, iQiyi's Youth With You 2020 Ranking",
+        hid: 'pc2020',
+        name: '创造营 2020 最新排名信息',
+        content: "获取 腾讯视频 - 创造营 2020 最新排名信息, Tencent Video's Creation Camp 2020 Ranking",
       },
     ],
     link: [
-      { rel: 'icon', href: '/ywy2020/favicon.ico' },
+      { rel: 'icon', href: '/pc2020/favicon.ico' },
     ],
     script: [
-      { src: 'https://hm.baidu.com/hm.js?f8d25318c527676058ae4b7bae24f2cb', async: true, defer: true },
-    ], // ywy2020
+      { src: 'https://hm.baidu.com/hm.js?4db80ee2bbe5f102db175508e955725a', async: true, defer: true },
+    ], // pc2020
   }),
   components: {
     LineChart,
@@ -64,7 +64,7 @@ export default defineComponent({
       }
 
       // import ranking data source from csv file
-      const dataString = (await import('./ywy2020_ranking.csv')).default
+      const dataString = (await import('./pc2020_ranking.csv')).default
 
       const a = dataString.replace(/\r/g, '').split('\n').filter(Boolean).map((v) => v.split(','))
       const [csvHeader, ...data] = a
