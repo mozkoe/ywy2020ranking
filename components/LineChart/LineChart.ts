@@ -57,8 +57,8 @@ export default defineComponent({
         text: v.rank,
         color: getRowColor(props.selectedRow!),
         textColor: props.selectedRow!.level[props.selectedRow!.level.length - 1].level === LevelEnum.C
-          ? 'black'
-          : 'white',
+          ? '#444'
+          : '#fff',
       }))
     })
 

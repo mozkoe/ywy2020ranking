@@ -31,7 +31,7 @@
         :d="pathGenerate(line)"
         :style="{
           stroke: getRowColor(line),
-          'stroke-width': line.selected ? 4 : 1,
+          'stroke-width': line.selected ? 3.5 : 1,
           opacity: line.selected ? 1 : 0.1,
         }"
         @mouseenter="props.handleLineEnter(line)"
@@ -47,7 +47,7 @@
         :cx="circle.x"
         :cy="circle.y"
         :fill="circle.color"
-        r="16"
+        r="14"
       />
       <text
         class="notch-text"

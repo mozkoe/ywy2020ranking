@@ -11,7 +11,7 @@ export default defineComponent({
   },
   setup: (props: Props) => {
     const bgColor = computed(() => colors[props.level as keyof typeof colors] ?? '')
-    const textColor = computed(() => (props.level === 'C' ? 'black' : 'white'))
+    const textColor = computed(() => (props.level === 'C' ? '#444' : '#fff'))
     return {
       colors,
       bgColor,

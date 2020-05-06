@@ -11,7 +11,7 @@ export const electionNumber = 9
 export const colors = {
   'A': '#fb9fcb',
   'B': '#ff951c',
-  'C': '#fff200',
+  'C': '#ffe769',
   'D': '#00a500',
   'F': 'gray',
   '?': '#000000',
