@@ -43,12 +43,8 @@ export const header: Array<DataTableHeader> = [
     value: 'level[0].level',
   },
   {
-    text: '公演1',
-    value: 'level[1].level',
-  },
-  {
     text: '主题曲',
-    value: 'level[2].level',
+    value: 'level[1].level',
   },
   {
     text: '排名变动',

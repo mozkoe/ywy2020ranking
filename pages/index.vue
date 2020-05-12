@@ -16,7 +16,7 @@
       </div>
 
       <div class="mt-4">
-        <span class="text-gray-500">腾讯视频 创造营 2020 - 排行榜（即将开放）</span>
+        <router-link to="/pc2020/" class="link">腾讯视频 创造营 2020 - 排行榜</router-link>
       </div>
     </div>
 

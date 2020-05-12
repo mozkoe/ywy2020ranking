@@ -27,6 +27,18 @@
           :election-number="electionNumber"
           img-path="/images/pc2020.jpg"
         />
+
+        <!-- level remarks -->
+        <div class="text-xs text-gray-500 flex flex-col ml-3">
+          <div>评级备注：</div>
+          <div class="flex">
+            <span class="mr-4">首发成团位： A</span>
+            <span class="mr-4">主力队：B</span>
+            <span class="mr-4">预备队：C</span>
+            <span class="mr-4">板凳队：F</span>
+          </div>
+          <div />
+        </div>
       </div>
 
       <!-- table -->
@@ -129,7 +141,7 @@
               <!-- ranking change -->
               <td>
                 <div class="mobile-row-header" v-if="state.showMore">
-                  {{ headers[6].text }}
+                  {{ headers[5].text }}
                 </div>
                 <div class="mobile-row-content ranking-change">
                   <span class="flex items-center">

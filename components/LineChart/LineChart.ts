@@ -34,7 +34,11 @@ export default defineComponent({
       svg: SVGSVGElement
     } = ctx.refs
 
-    const getXByEpsodes = (column: number) => (column / (props.episodes.length - 1)) * (state.width - state.padding * 2) + state.padding
+    const getXByEpsodes = (column: number) => (
+      props.episodes.length > 1
+        ? (column / (props.episodes.length - 1)) * (state.width - state.padding * 2) + state.padding
+        : (column / (props.episodes.length + 1)) * (state.width - state.padding * 2) + state.padding
+    )
     const getYByPercentage = (percentage: number) => (percentage * (state.height - state.paddingTop - state.paddingBottom)) + state.paddingTop
 
     const pathGenerate = (row: Row) => row.ranking.map((v, i) => {
