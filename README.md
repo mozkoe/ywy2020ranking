@@ -2,7 +2,9 @@
 
 ## Update
 
-Ready for Tencent Video's Produce Camp 2020.
+Now support to Tencent Video's Produce Camp 2020.
+
+[Tencent Video's Produce Camp 2020 Rankings](https://mozkoe.com/pc2020/)
 
 ## Description
 
@@ -12,7 +14,7 @@ An interactive ranking chart for iQiyi's Youth With You 2020 made with Nuxt.js. 
 
 Inspired by [ajyu124/p48ranking](https://github.com/ajyu124/p48ranking) ;)
 
-![alt text](./assets/images/ywy2020.jpg)
+![ywy2020](./assets/images/ywy2020.jpg)
 
 ## Build Setup
 

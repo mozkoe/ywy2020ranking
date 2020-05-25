@@ -27,18 +27,6 @@
           :election-number="electionNumber"
           img-path="/images/pc2020.jpg"
         />
-
-        <!-- level remarks -->
-        <div class="text-xs text-gray-500 flex flex-col ml-3">
-          <div>评级备注：</div>
-          <div class="flex">
-            <span class="mr-4">首发成团位： A</span>
-            <span class="mr-4">主力队：B</span>
-            <span class="mr-4">预备队：C</span>
-            <span class="mr-4">板凳队：F</span>
-          </div>
-          <div />
-        </div>
       </div>
 
       <!-- table -->
@@ -73,8 +61,27 @@
           :custom-sort="tableSort"
         >
           <template #top>
-            <div class="flex">
-              <v-switch :ripple="false" v-model="state.showMore" label="更多信息" />
+            <div class="flex items-center justify-between">
+              <v-switch class="flex desc-left" :ripple="false" v-model="state.showMore" label="更多信息" />
+
+              <!-- level remarks -->
+              <div class="text-xs text-gray-500 flex flex-col ml-3">
+                <!-- <div>评级备注：</div> -->
+                <div class="flex desc-wrap">
+                  <span class="desc-cell">
+                    首发成团位：<LevelCircle level="A" />
+                  </span>
+                  <span class="desc-cell">
+                    主力队：<LevelCircle level="B" />
+                  </span>
+                  <span class="desc-cell">
+                    预备队：<LevelCircle level="C" />
+                  </span>
+                  <span class="desc-cell">
+                    板凳队：<LevelCircle level="F" />
+                  </span>
+                </div>
+              </div>
             </div>
           </template>
           <template #item="{ item, headers, index }">
