@@ -65,7 +65,7 @@
               <v-switch class="flex desc-left" :ripple="false" v-model="state.showMore" label="更多信息" />
 
               <!-- level remarks -->
-              <div class="text-xs text-gray-500 flex flex-col ml-3">
+              <div class="text-xs text-gray-500 flex flex-col">
                 <!-- <div>评级备注：</div> -->
                 <div class="flex desc-wrap">
                   <span class="desc-cell">
