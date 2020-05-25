@@ -4,7 +4,7 @@
 
 Now support to Tencent Video's Produce Camp 2020.
 
-[Tencent Video's Produce Camp 2020 Rankings](https://mozkoe.com/pc2020/)
+[Produce Camp 2020 Rankings](https://mozkoe.com/pc2020/)
 
 ## Description
 
