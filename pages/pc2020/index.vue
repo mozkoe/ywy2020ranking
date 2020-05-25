@@ -69,7 +69,7 @@
                 <!-- <div>评级备注：</div> -->
                 <div class="flex desc-wrap">
                   <span class="desc-cell">
-                    首发成团位：<LevelCircle level="A" />
+                    首发成团：<LevelCircle level="A" />
                   </span>
                   <span class="desc-cell">
                     主力队：<LevelCircle level="B" />
