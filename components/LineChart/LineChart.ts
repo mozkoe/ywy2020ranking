@@ -32,7 +32,7 @@ export default defineComponent({
 
     const $refs: {
       svg: SVGSVGElement
-    } = ctx.refs
+    } = (ctx as any).refs
 
     const getXByEpsodes = (column: number) => (
       props.episodes.length > 1

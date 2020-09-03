@@ -12,27 +12,28 @@
     "a": "nuxt build -a"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.10.3",
-    "@vue/composition-api": "^0.5.0",
-    "nuxt": "^2.0.0",
+    "@nuxtjs/axios": "^5.12.2",
+    "@vue/composition-api": "^0.6.7",
+    "nuxt": "^2.14.4",
     "resize-observer-polyfill": "^1.5.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.7.6"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.2.0",
-    "@mdi/js": "^5.3.45",
-    "@nuxt/typescript-build": "^1.0.0",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@mdi/js": "^5.5.55",
+    "@nuxt/types": "^2.14.4",
+    "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/vuetify": "^1.11.2",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.1.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
     "eslint-loader": "^4.0.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsdoc": "^25.4.2",
-    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.3.1",
+    "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-vue": "^6.2.2",
     "raw-loader": "^4.0.1"
   }
