@@ -1,5 +1,6 @@
 export default {
-  mode: 'spa',
+  // mode: 'spa',  // deprecated
+  ssr: false,
   /*
   ** Headers of the page
   */

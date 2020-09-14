@@ -1,4 +1,11 @@
 module.exports = {
+  future: {
+    removeDeprecatedGapUtilities: true,
+  },
+  purge: [
+    './pages/**/*.vue',
+    './components/**/*.vue',
+  ],
   theme: {
     screens: {
       'sm': '640px',
@@ -6,12 +13,5 @@ module.exports = {
       'lg': '960px',
       'xl': '1280px',
     },
-  },
-  purge: [
-    './pages/**/*.vue',
-    './components/**/*.vue',
-  ],
-  future: {
-    removeDeprecatedGapUtilities: true,
   },
 }
